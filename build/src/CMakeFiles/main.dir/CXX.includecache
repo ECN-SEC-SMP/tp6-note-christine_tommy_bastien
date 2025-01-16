@@ -1,0 +1,12 @@
+#IncludeRegexLine: ^[ 	]*[#%][ 	]*(include|import)[ 	]*[<"]([^">]+)([">])
+
+#IncludeRegexScan: ^.*$
+
+#IncludeRegexComplain: ^$
+
+#IncludeRegexTransform: 
+
+/workspaces/tp6-note-christine_tommy_bastien/src/Jeu.cpp
+
+/workspaces/tp6-note-christine_tommy_bastien/src/main.cpp
+

@@ -1,0 +1,5 @@
+/workspaces/tp6-note-christine_tommy_bastien/build/CMakeFiles/rebuild_cache.dir
+/workspaces/tp6-note-christine_tommy_bastien/build/CMakeFiles/edit_cache.dir
+/workspaces/tp6-note-christine_tommy_bastien/build/src/CMakeFiles/rebuild_cache.dir
+/workspaces/tp6-note-christine_tommy_bastien/build/src/CMakeFiles/edit_cache.dir
+/workspaces/tp6-note-christine_tommy_bastien/build/src/CMakeFiles/main.dir
