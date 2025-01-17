@@ -13,7 +13,7 @@ class Chance:public Carte
 {
 
     public:
-        void appliquerEffet(Joueur &joueur)();
+        void appliquerEffet(Joueur &joueur);
 };
 
 #endif

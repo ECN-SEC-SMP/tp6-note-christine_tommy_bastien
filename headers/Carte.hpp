@@ -3,10 +3,11 @@
 
 #include <iostream>
 #include <string>
+#include <Case.hpp>
 
 using namespace std;
 
-class Carte::Case
+class Carte: public Case
 
 {
     private : 

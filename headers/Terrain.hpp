@@ -4,14 +4,15 @@
 #define TERRAINE_HPP
 
 #include <Propriete.hpp>
+#include <vector>
 
 using namespace std;
-s
+
 class Terrain:public Propriete
 
 {
     protected : 
-        string oculeur;
+        string oouleur;
         uint nbMaisons;
         bool hotel;
         vector<uint> loyers;
