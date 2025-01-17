@@ -3,7 +3,7 @@
 #ifndef PROPRIETE_HPP
 #define PROPRIETE_HPP
 
-#include <Joueur.hpp>
+#include "Joueur.hpp"
 
 using namespace std;
 

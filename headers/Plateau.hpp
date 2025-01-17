@@ -3,8 +3,8 @@
 #ifndef PLATEAU_HPP
 #define PLATEAU_HPP
 
-#include <Case.hpp>
-#include <Joueur.hpp>
+#include "Case.hpp"
+#include "Joueur.hpp"
 
 using namespace std;
 

@@ -3,8 +3,8 @@
 #ifndef COMMUNAUTE_HPP
 #define COMMUNAUTE_HPP
 
-#include <Carte.hpp>
-#include <Joueur.hpp>
+#include "Carte.hpp"
+#include "Joueur.hpp"
 
 using namespace std;
 

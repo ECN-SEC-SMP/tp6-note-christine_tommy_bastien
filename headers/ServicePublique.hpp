@@ -4,7 +4,7 @@
 #define CHANCE_HPP
 
 #include <vector>
-#include <Propriete.hpp>
+#include "Propriete.hpp"
 
 using namespace std;
 

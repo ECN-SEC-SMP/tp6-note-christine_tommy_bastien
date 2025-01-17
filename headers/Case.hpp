@@ -3,8 +3,8 @@
 
 #include <iostream>
 #include <string>
-#include <Joueur.hpp>
-#include <Plateau.hpp>
+#include "Joueur.hpp"
+#include "Plateau.hpp"
 
 using namespace std;
 

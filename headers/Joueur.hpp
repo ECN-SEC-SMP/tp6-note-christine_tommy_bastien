@@ -3,9 +3,9 @@
 #ifndef JOUEUR_HPP
 #define JOUEUR_HPP
 
-#include <Propriete.hpp>
-#include <Joueur.hpp>
-#include <Plateau.hpp>
+#include "Propriete.hpp"
+#include "Joueur.hpp"
+#include "Plateau.hpp"
 
 using namespace std;
 
