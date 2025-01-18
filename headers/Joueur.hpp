@@ -7,6 +7,8 @@
 #include "Joueur.hpp"
 #include "Plateau.hpp"
 
+#include <vector>
+
 using namespace std;
 
 class Joueur
