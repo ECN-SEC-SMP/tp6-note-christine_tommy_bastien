@@ -14,7 +14,7 @@ class Jeu {
         uint8_t tour;
         Des des;
         Plateau plateau;
-        vector<Joueur> vecteur_joueurs;
+        vector<Joueur> joueurs;
 
         void askNombreJoueurs();
         void demarrerTour();

@@ -1,19 +1,11 @@
-
-
-#ifndef COMMUNAUTE_HPP
-#define COMMUNAUTE_HPP
+#pragma once
 
 #include "Carte.hpp"
 #include "Joueur.hpp"
 
-using namespace std;
-
-class Communaute:public Carte
-
+class Communaute: public Carte
 {
-
     public:
+        Communaute();
         void appliquerEffet(Joueur &joueur);
 };
-
-#endif

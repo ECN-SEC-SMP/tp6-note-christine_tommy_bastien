@@ -1,4 +1,4 @@
-#include "Des.hpp"
+#include "../headers/Des.hpp"
 #include <iostream>
 
 using namespace std;
@@ -19,6 +19,6 @@ bool Des::checkDouble() {
     return valDe1 == valDe2;
 }
 
-unsigned int Des::getValue() {
+uint8_t Des::getValue() {
     return valDe1 + valDe2;
 }

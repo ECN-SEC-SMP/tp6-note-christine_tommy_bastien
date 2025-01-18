@@ -1,14 +1,13 @@
-#ifndef PION_HPP
-#define PION_HPP
+#pragma once
 
 using namespace std;
 
 class Pion
 {
-    protected : 
-        unsigned int position;
-        void setPosition(unsigned int postition);
-        unsigned int getPosition();
-};
+    private : 
+        uint8_t position;
 
-#endif
+    public :
+        void setPosition(uint8_t postition);
+        uint8_t getPosition();
+};

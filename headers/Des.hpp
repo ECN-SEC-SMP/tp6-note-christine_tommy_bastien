@@ -1,19 +1,15 @@
-#ifndef DES_HPP
-#define DES_HPP
+#pragma once
 
 #include <iostream>
 #include <cstdlib>  
 
 class Des { 
     private:
-        unsigned int valDe1, valDe2;
+        uint8_t valDe1, valDe2;
 
     public:
         Des();  //Constructeur
-
         void lancerDes();
         bool checkDouble();
-        unsigned int getValue();
+        uint8_t getValue();
 };
-
-#endif

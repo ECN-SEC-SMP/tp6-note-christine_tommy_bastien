@@ -1,21 +1,15 @@
-
-
-#ifndef SERVICE_PUBLIC_HPP
-#define CHANCE_HPP
+#pragma once
 
 #include <vector>
 #include "Propriete.hpp"
 
 using namespace std;
 
-class SERVICE_PUBLIC : Propriete
-
+class Service_public : Propriete
 {
     protected : 
-        vector<uint> loyers;
+        vector<uint16_t> loyers;
 
     public:
         void calculerLoyer();
 };
-
-#endif

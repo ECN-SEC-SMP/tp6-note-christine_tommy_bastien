@@ -1,5 +1,4 @@
-#ifndef CARTE_HPP
-#define CARTE_HPP
+#pragma once
 
 #include <iostream>
 #include <string>
@@ -12,12 +11,10 @@ using namespace std;
 class Carte: public Case
 
 {
-    private : 
+    protected : 
         string nom;
-        unsigned int nbRandom;
+        uint8_t nbRandom;
 
     public:
         string tirerCarte();
 };
-
-#endif

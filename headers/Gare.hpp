@@ -1,20 +1,15 @@
-
-
-#ifndef GARE_HPP
-#define GARE_HPP
+#pragma once
 
 #include <vector>
+#include <iostream>
 
 using namespace std;
 
 class Gare
-
 {
     private :
-        vector<unsigned int> loyers;
+        vector<uint16_t> loyers;
 
     public:
-        void calculerLoyer();
+        uint16_t calculerLoyer();
 };
-
-#endif

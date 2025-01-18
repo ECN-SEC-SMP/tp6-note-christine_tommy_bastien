@@ -1,19 +1,11 @@
-
-
-#ifndef CHANCE_HPP
-#define CHANCE_HPP
+#pragma once
 
 #include "Carte.hpp"
 #include "Joueur.hpp"
 
-using namespace std;
-
-class Chance:public Carte
-
+class Chance: public Carte
 {
-
     public:
+        Chance(); // constructeur
         void appliquerEffet(Joueur &joueur);
 };
-
-#endif

@@ -1,7 +1,4 @@
-
-
-#ifndef PLATEAU_HPP
-#define PLATEAU_HPP
+#pragma once
 
 #include "Case.hpp"
 #include "Joueur.hpp"
@@ -9,19 +6,15 @@
 using namespace std;
 
 class Plateau
-
 {
-
-    protected :
+    private:
         vector<Case> vecteur_plateau;
-        unsigned int impots;
+        uint16_t impots;
 
     public:
         Plateau(); //Constructeur
-        int getNombreJoueur();
-        void executerAction(unsigned int numCase, Joueur &joueur);
-        int ajouterImpots(int montant);
-        unsigned int getImpots();
+        uint8_t getNombreJoueur();
+        void executerAction(uint8_t numCase, Joueur &joueur);
+        void ajouterImpots(uint16_t montant);
+        uint16_t getImpots();
 };
-
-#endif

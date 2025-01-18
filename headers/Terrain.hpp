@@ -1,7 +1,4 @@
-
-
-#ifndef TERRAIN_HPP
-#define TERRAINE_HPP
+#pragma once
 
 #include "Propriete.hpp"
 #include <vector>
@@ -9,17 +6,14 @@
 using namespace std;
 
 class Terrain:public Propriete
-
 {
-    protected : 
-        string oouleur;
-        uint nbMaisons;
+    private : 
+        string couleur;
+        uint8_t nbMaisons;
         bool hotel;
-        vector<uint> loyers;
+        vector<uint16_t> loyers;
 
     public:
         void ajouterMaison();
         void calculerLoyer();
 };
-
-#endif

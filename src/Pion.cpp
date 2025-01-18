@@ -1,13 +1,12 @@
+#include "../headers/Pion.hpp"
+#include "../headers/Des.hpp"
 
-#include "Pion.hpp"
-#include "Des.hpp"
-
-void Pion::setPosition(unsigned int nouvelle_position){
+void Pion::setPosition(uint8_t nouvelle_position){
     position = nouvelle_position;
 }
 
-unsigned int Pion::getPosition(){
+uint8_t Pion::getPosition(){
     Des des;
-    unsigned int nouvelle_position=position+des.getValue();
+    uint8_t nouvelle_position=position+des.getValue();
     return nouvelle_position;
 }

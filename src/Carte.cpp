@@ -1,16 +1,4 @@
-/*class Carte: public Case
-
-{
-    private : 
-        string nom;
-        unsigned int nbRandom;
-
-    public:
-        void tirerCarte();
-};
-*/
-
-#include "Carte.hpp"
+#include "../headers/Carte.hpp"
 
 vector<string> Carte_chance = {
     "Rendez-vous à la Rue de la Paix",
@@ -50,7 +38,7 @@ vector<string> Carte_communaute = {
     "Vous héritez F10 000"
 };
 
-string Carte :: tirerCarte(){
+string Carte::tirerCarte(){
 
     Carte carte_nom = Carte.nom;
     int nbRandom = rand() % 15;
@@ -58,8 +46,11 @@ string Carte :: tirerCarte(){
 
     if (carte_nom == "Chance")
         action = Carte_chance[nbRandom];
+        cout<<"Vous avez tiré la carte Chance : "<<Carte_chance[nbRandom]<<endl;
     else (carte_nom=="Communauté")
         action = Carte_communauté[nbRandom];
+        cout<<"Vous avez tiré la carte Communauté : "<<Carte_communaute[nbRandom]<<endl;
 
-    return action
+    return action;
 }
+

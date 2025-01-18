@@ -1,25 +1,19 @@
-
-
-#ifndef PROPRIETE_HPP
-#define PROPRIETE_HPP
+#pragma once
 
 #include "Joueur.hpp"
 
 using namespace std;
 
-class Propriete:public Case
-
+class Propriete: public Case
 {
     protected : 
-        unsigned int prix;
+        uint16_t prix;
         Joueur proprietaire;
 
     public:
         Propriete(); //Constructeur
-        void setPrix(uint prix);
-        unsigned int getprix();
+        void setPrix(uint16_t prix);
+        uint16_t getprix();
         void setProprietaire(Joueur*);
         void getPropritaire(Joueur*);
 };
-
-#endif

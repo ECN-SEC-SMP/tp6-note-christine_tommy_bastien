@@ -1,17 +1,13 @@
-#ifndef CASE_HPP
-#define CASE_HPP
+#pragma once
 
 #include <iostream>
 #include <string>
 #include "Joueur.hpp"
 #include "Plateau.hpp"
 
-using namespace std;
-
 class Case
-
 {
-    private : 
+    protected : 
         string nom;
 
     public:
@@ -22,5 +18,3 @@ class Case
         void caseImpots(Joueur &joueur);
         void caseParcGratuit(Joueur &joueur, Plateau &plateau);
 };
-
-#endif
