@@ -1,5 +1,6 @@
 #include "../headers/Case.hpp"
 #include "../headers/Plateau.hpp"
+#include "../headers/Pion.hpp"
 
 Case::Case()
 {
@@ -17,10 +18,10 @@ void Case::caseDepart(Joueur &joueur)
      cout << joueur.getNom() << " reçoit " << Bonus << " mono." << endl;
 }
 
-void Case::casePrison(Joueur &joueur)
+void Case::casePrison(Joueur &joueur, Pion pion)
 {
-    joueur.aller_prison();
-     cout << joueur.getNom() << " va en taule" << endl;
+    joueur.aller_prison(pion);
+    cout << joueur.getNom() << " va en taule" << endl;
 }
 
 void Case::caseTaxe(Joueur &joueur, Plateau &plateau)

@@ -1,6 +1,7 @@
 #include "../headers/Joueur.hpp"
 #include "../headers/Propriete.hpp"
 #include "../headers/Plateau.hpp"
+#include "../headers/Pion.hpp"
 
 using namespace std;
 
@@ -32,14 +33,14 @@ bool Joueur::lancerDes(Des &des)
 
 void Joueur::avancer_pion(uint8_t nombre)
 {
-     position += nombre;
-     if (position >= 40) 
-    {
-        position -= 40;
-        cout << nom << " passe par la case Départ et reçoit 200 mono." << endl;
-        recevoir_argent(200);
-    }
-    cout << nom << " avance de " << static_cast<int>(nombre) << " cases et se trouve sur la case " << static_cast<int>(position) << "." << endl;
+    //  pion.setPosition(+nombre);
+    //  if (pion.getPosition() >= 40) 
+    // {
+    //     pion.position -= 40;
+    //     cout << nom << " passe par la case Départ et reçoit 200 mono." << endl;
+    //     recevoir_argent(200);
+    // }
+    // cout << nom << " avance de " << static_cast<int>(nombre) << " cases et se trouve sur la case " << static_cast<int>(position) << "." << endl;
 }
 
 void Joueur::acheterPropriete(Joueur joueur, Propriete * propriete)
@@ -143,10 +144,10 @@ void Joueur::payer_impots(uint16_t montant, Plateau &plateau)
     }
 }
 
-void Joueur::aller_prison()
+void Joueur::aller_prison(Pion pion)
 {
     prison = true;
-    position = 10; 
+    pion.setPosition(10);
     cout << nom << " est envoyé en prison. CETTE RACAILLE" << endl;
 }
 
@@ -181,3 +182,71 @@ void Joueur::afficherProprietes()
         cout << (i + 1) << ". " << proprietes[i]->getNom() << " - Prix: " << proprietes[i]->getprix() << " mono" << endl;
     }
 }
+
+
+uint8_t Joueur::getNombreHotels()
+{
+    uint8_t nombreHotels = 0;
+    for (auto propriete : proprietes)
+    {
+        if (propriete->estHotel()) 
+        {
+            nombreHotels++;
+        }
+    }
+    return nombreHotels;
+}
+
+uint8_t Joueur::getNombreMaisons()
+{
+    uint8_t nombreMaisons = 0;
+    for (auto propriete : proprietes)
+    {
+        if (propriete->estMaison()) 
+        {
+            nombreMaisons++;
+        }
+    }
+    return nombreMaisons;
+}
+
+
+
+void Joueur::ajouterMaison(Propriete &propriete) {
+     if (propriete.estAchetee()) {
+            uint16_t prixMaison = propriete.getPrixMaison(position);
+            if (argent_total >= prixMaison && prixMaison > 0) {
+                argent_total -= prixMaison;
+                propriete.ajouterMaison();
+                cout << nom << " a ajouté une maison sur " << propriete.getNom() << " pour " << prixMaison << " mono." << endl;
+            } else {
+                cout << nom << " n'a pas assez d'argent pour ajouter une maison sur " << propriete.getNom() << "." << endl;
+            }
+        } else {
+            cout << "La propriété " << propriete.getNom() << " n'appartient pas à " << nom << "." << endl;
+        }
+}
+
+void Joueur::ajouterHotel(Propriete &propriete) 
+{
+    if (propriete.estAchetee()) 
+    {
+        uint16_t prixHotel = propriete.getPrixHotel(position);
+        if (argent_total >= prixHotel) 
+        {
+            argent_total -= prixHotel;
+            propriete.ajouterHotel();
+            cout << nom << " a ajouté un hôtel sur " << propriete.getNom() << " pour " << prixHotel << " mono." << endl;
+        } 
+        else 
+        {
+            cout << nom << " n'a pas assez d'argent pour ajouter un hôtel sur " << propriete.getNom() << "." << endl;
+        }
+    } 
+    else 
+    {
+        cout << "La propriété " << propriete.getNom() << " n'appartient pas à " << nom << "." << endl;
+    }
+}
+
+

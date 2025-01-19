@@ -34,8 +34,12 @@ public:
     void payer_joueur(uint16_t montant, Joueur joueur_a_payer);
     void payer_banque(uint16_t montant);
     void payer_impots(uint16_t montant, Plateau &plateau);
-    void aller_prison();
+    void aller_prison(Pion pion);
     void sortir_prison();
     void Faillite();
     void afficherProprietes();
+    uint8_t getNombreHotels();
+    uint8_t getNombreMaisons();
+    void ajouterMaison(Propriete &propriete);
+    void ajouterHotel(Propriete &propriete);
 };

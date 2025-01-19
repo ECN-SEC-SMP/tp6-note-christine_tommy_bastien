@@ -2,6 +2,7 @@
 
 #include "Carte.hpp"
 #include "Joueur.hpp"
+#include "Pion.hpp"
 
 class Chance : public Carte
 {
@@ -11,5 +12,5 @@ private:
 public:
     Chance(); // constructeur
     void afficherNomCarte();
-    void appliquerEffet(Joueur &joueur);
+    void appliquerEffet(Joueur &joueur, Pion pion);
 };
