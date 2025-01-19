@@ -4,65 +4,74 @@
 
 using namespace std;
 
-string Joueur::getNom(){
-
+string Joueur::getNom()
+{
 }
 
-void Joueur::setNom() {
+void Joueur::setNom()
+{
     cout << "Nom du joueur : " << endl;
     cin >> nom;
 
     this->nom = nom;
 }
 
-uint8_t Joueur::getPosition(){
-
+uint8_t Joueur::getPosition()
+{
 }
 
-void Joueur::avancer_pion(uint8_t nombre){
+bool Joueur::lancerDes(Des &des)
+{
+    des.lancerDes();
+    bool checkDouble = des.checkDouble();
 
+    return checkDouble;
 }
 
-void Joueur::acheterPropriete(Propriete*){
-
+void Joueur::avancer_pion(uint8_t nombre)
+{
 }
 
-void Joueur::vendrePropriete(Propriete*){
-
+void Joueur::acheterPropriete(Propriete *)
+{
 }
 
-vector<Propriete> Joueur::getProprietes(){
-
+void Joueur::vendrePropriete(Propriete *)
+{
 }
 
-void Joueur::tirer_carte_chance(){
-
+vector<Propriete> Joueur::getProprietes()
+{
 }
 
-void Joueur::tirer_carte_communauté(){
-
+void Joueur::tirer_carte_chance()
+{
 }
 
-void Joueur::recevoir_argent(uint16_t montant){
-
+void Joueur::tirer_carte_communauté()
+{
 }
 
-void Joueur::payer_joueur(uint16_t montant, Joueur joueur_a_payer){
-
+void Joueur::recevoir_argent(uint16_t montant)
+{
 }
 
-void Joueur::payer_banque(uint16_t montant){
-
+void Joueur::payer_joueur(uint16_t montant, Joueur joueur_a_payer)
+{
 }
 
-void Joueur::payer_impots(uint16_t montant, Plateau &plateau){
-
+void Joueur::payer_banque(uint16_t montant)
+{
 }
 
-void Joueur::aller_prison(){
-
+void Joueur::payer_impots(uint16_t montant, Plateau &plateau)
+{
 }
 
-void Joueur::sortir_prison(){
+void Joueur::aller_prison()
+{
+}
 
+void Joueur::sortir_prison()
+{
 }

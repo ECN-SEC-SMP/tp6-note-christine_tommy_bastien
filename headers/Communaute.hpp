@@ -3,9 +3,12 @@
 #include "Carte.hpp"
 #include "Joueur.hpp"
 
-class Communaute: public Carte
+class Communaute : public Carte
 {
-    public:
-        Communaute();
-        void appliquerEffet(Joueur &joueur);
+private:
+    vector<string> cartesCommunaute;
+
+public:
+    Communaute();
+    void appliquerEffet(Joueur &joueur);
 };

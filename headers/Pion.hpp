@@ -1,13 +1,15 @@
 #pragma once
 
+#include <iostream>
+
 using namespace std;
 
 class Pion
 {
-    private : 
-        uint8_t position;
+private:
+    uint8_t position;
 
-    public :
-        void setPosition(uint8_t postition);
-        uint8_t getPosition();
+public:
+    void setPosition(uint8_t nouvelle_position);
+    uint8_t getPosition();
 };

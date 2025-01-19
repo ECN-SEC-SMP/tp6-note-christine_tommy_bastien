@@ -5,15 +5,17 @@
 
 using namespace std;
 
-class Terrain:public Propriete
+class Terrain : public Propriete
 {
-    private : 
-        string couleur;
-        uint8_t nbMaisons;
-        bool hotel;
-        vector<uint16_t> loyers;
+private:
+    string couleur;
+    uint8_t nbMaisons;
+    bool hotel;
+    vector<uint16_t> loyers;
 
-    public:
-        void ajouterMaison();
-        void calculerLoyer();
+public:
+    Terrain();
+    Terrain(string nom, uint16_t prix, string couleur, vector<uint16_t> loyers);
+    void ajouterMaison();
+    void calculerLoyer();
 };

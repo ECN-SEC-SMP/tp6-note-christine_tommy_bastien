@@ -3,9 +3,13 @@
 #include "Carte.hpp"
 #include "Joueur.hpp"
 
-class Chance: public Carte
+class Chance : public Carte
 {
-    public:
-        Chance(); // constructeur
-        void appliquerEffet(Joueur &joueur);
+private:
+    vector<string> cartesChance;
+
+public:
+    Chance(); // constructeur
+    void afficherNomCarte();
+    void appliquerEffet(Joueur &joueur);
 };

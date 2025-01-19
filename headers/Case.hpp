@@ -7,14 +7,15 @@
 
 class Case
 {
-    protected : 
-        string nom;
+protected:
+    string nom;
 
-    public:
-        Case(); //constructeur
-        void caseDepart(Joueur &joueur);
-        void casePrison(Joueur &joueur);
-        void caseTaxe(Joueur &joueur);
-        void caseImpots(Joueur &joueur);
-        void caseParcGratuit(Joueur &joueur, Plateau &plateau);
+public:
+    Case(); // constructeur
+    Case(string nom);
+    void caseDepart(Joueur &joueur);
+    void casePrison(Joueur &joueur);
+    void caseTaxe(Joueur &joueur);
+    void caseImpots(Joueur &joueur);
+    void caseParcGratuit(Joueur &joueur, Plateau &plateau);
 };
