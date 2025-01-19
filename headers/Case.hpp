@@ -15,7 +15,7 @@ public:
     Case(string nom);
     void caseDepart(Joueur &joueur);
     void casePrison(Joueur &joueur);
-    void caseTaxe(Joueur &joueur);
-    void caseImpots(Joueur &joueur);
+    void caseTaxe(Joueur &joueur, Plateau &plateau);
+    void caseImpots(Joueur &joueur, Plateau &plateau);
     void caseParcGratuit(Joueur &joueur, Plateau &plateau);
 };

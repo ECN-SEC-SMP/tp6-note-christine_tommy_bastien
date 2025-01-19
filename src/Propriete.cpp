@@ -19,3 +19,8 @@ void Propriete::setProprietaire(Joueur &Joueur) {
 void Propriete::getPropritaire(Joueur &Joueur) {
 
 };
+
+string Propriete::getNom()
+{
+    return this->nom;
+}

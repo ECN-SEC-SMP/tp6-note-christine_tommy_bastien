@@ -22,3 +22,5 @@ bool Des::checkDouble() {
 uint8_t Des::getValue() {
     return valDe1 + valDe2;
 }
+
+

@@ -38,6 +38,10 @@ void Jeu::askNombreJoueurs()
         cout << "Trop de joueurs, il faut être maximum huit" << endl;
         this->askNombreJoueurs();
     }
+    else
+    {
+        this->askNombreJoueurs();
+    }
 
     this->nombreJoueurs = value;
 };

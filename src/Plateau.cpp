@@ -57,8 +57,10 @@ void Plateau::executerAction(uint8_t numCase, Joueur &joueur)
 
 void Plateau::ajouterImpots(uint16_t montant)
 {
+    impots += montant;
 }
 
 uint16_t Plateau::getImpots()
 {
+    return impots;
 }

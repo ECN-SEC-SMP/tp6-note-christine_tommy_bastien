@@ -13,26 +13,29 @@ class Joueur
 {
 private:
     uint16_t argent_total;
-    std::string nom;
+    string nom;
     bool prison;
     bool carteChancePrison;
     vector<Propriete *> proprietes;
+    uint8_t position;
 
 public:
     void setNom();
-    std::string getNom();
+    string getNom();
     uint8_t getPosition();
     bool lancerDes(Des &des);
     void avancer_pion(uint8_t nombre);
-    void acheterPropriete(Propriete *);
+    void acheterPropriete(Joueur joueur,Propriete *);
     void vendrePropriete(Propriete *);
-    vector<Propriete> getProprietes();
+    vector<Propriete*> getProprietes();
     void tirer_carte_chance();
-    void tirer_carte_communauté();
+    void tirer_carte_communaute();
     void recevoir_argent(uint16_t montant);
     void payer_joueur(uint16_t montant, Joueur joueur_a_payer);
     void payer_banque(uint16_t montant);
     void payer_impots(uint16_t montant, Plateau &plateau);
     void aller_prison();
     void sortir_prison();
+    void Faillite();
+    void afficherProprietes();
 };
