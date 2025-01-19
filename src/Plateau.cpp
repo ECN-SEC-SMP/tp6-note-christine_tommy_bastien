@@ -5,8 +5,8 @@ Plateau::Plateau(){
     vector<Case> vecteur_plateau = {
         Boulevard de Belleville; Rue Lecourbe;
         Rue de Vaugirard; Rue de Courcelles; Avenue de la République,;
-        Boulevard de la Villette; avenue de Neuilly; Rue de Paradis;
-        Avenue Mozart; boulevard Saint-Michel; place Pigalle;
+        Boulevard de la Villette; Avenue de Neuilly; Rue de Paradis;
+        Avenue Mozart; Boulevard Saint-Michel; Place Pigalle;
         Avenue Matignon; boulevard Malesherbes; Avenue Henri-Martin;
         Faubourg Saint-Honoré; place de la Bourse; rue La Fayette;
         Avenue de Breteuil; Avenue Foch; boulevard des Capucines;
