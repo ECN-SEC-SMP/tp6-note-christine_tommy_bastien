@@ -11,8 +11,8 @@ Chance::Chance()
         "Avancez au Boulevard de La Villette. Si vous passez par la case départ, recevez 200 mono",
         "Vous êtes imposé pour les réparations de voirie à raison de 40 mono par maison et 115 mono par hôtel.",
         "Avancez jusqu’à la Gare de Lyon. Si vous passez par la case départ, recevez 200 mono",
-        "Vous avez gagné le prix de mots croisés. Recevez F10 000",
-        "La banque vous verse un dividende de F5 000",
+        "Vous avez gagné le prix de mots croisés. Recevez 100 mono",
+        "La banque vous verse un dividende de 50 mono",
         "Vous êtes libéré de prison. Cette carte peut être conservée jusqu’à ce qu’elle soit utilisée ou vendue.",
         "Reculez de trois cases",
         "Aller en prison. Rendez-vous directement en prison. Ne franchissez pas par la case départ, ne touchez pas 200 mono",
@@ -56,10 +56,10 @@ void Chance::appliquerEffet(Joueur &joueur, Pion pion)
             joueur.avancer_pion(15 - joueur.getPosition());
             break;
         case 6:
-            joueur.recevoir_argent(10'000);
+            joueur.recevoir_argent(100);
             break;
         case 7:
-            joueur.recevoir_argent(5'000);
+            joueur.recevoir_argent(50);
             break;
         case 8:
             cout << joueur.getNom() << " a tiré une carte 'Libéré de prison'. Elle peut être conservée." << endl;
