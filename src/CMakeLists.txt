@@ -2,10 +2,34 @@
 set(SOURCES
     ../src/main.cpp
     ../src/Jeu.cpp
+    ../src/Plateau.cpp
+    ../src/Case.cpp
+    ../src/Carte.cpp
+    ../src/Joueur.cpp
+    ../src/Propriete.cpp
+    ../src/Chance.cpp
+    ../src/Communaute.cpp
+    ../src/Pion.cpp
+    ../src/Des.cpp
+    ../src/Terrain.cpp
+    ../src/Gare.cpp
+    ../src/ServicePublic.cpp
 )
 
 set(HEADERS
     ../headers/Jeu.hpp
+    ../headers/Plateau.hpp
+    ../headers/Case.hpp
+    ../headers/Carte.hpp
+    ../headers/Joueur.hpp
+    ../headers/Propriete.hpp
+    ../headers/Chance.hpp
+    ../headers/Communaute.hpp
+    ../headers/Pion.hpp
+    ../headers/Des.hpp
+    ../headers/Terrain.hpp
+    ../headers/Gare.hpp
+    ../headers/ServicePublic.hpp
 )
 
 # Créer l'exécutable

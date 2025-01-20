@@ -14,5 +14,6 @@ protected:
     uint8_t nbRandom;
 
 public:
+    Carte();
     void tirerCarte();
 };

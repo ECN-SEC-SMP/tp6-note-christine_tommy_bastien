@@ -1,5 +1,13 @@
 #include "../headers/Plateau.hpp"
 
+/**
+ * @brief Constructeur de la classe Plateau.
+ * 
+ * Ce constructeur initialise le plateau de jeu en ajoutant différentes cases, telles que des terrains, des gares,
+ * des cases spéciales comme "Chance" ou "Prison", ainsi que des services publics et des communautés. 
+ * Chaque case est ajoutée au vecteur `vecteur_plateau` sous forme d'objets uniques de type dérivé (par exemple, `Terrain`, `Gare`, `Case`).
+ */
+
 Plateau::Plateau()
 {
     this->vecteur_plateau.push_back(make_unique<Case>("Départ"));
@@ -46,20 +54,58 @@ Plateau::Plateau()
     this->impots = 0;
 }
 
+/**
+ * @brief Retourne le nombre de joueurs dans le jeu.
+ * 
+ * Cette fonction retourne le nombre de joueurs actuels dans la partie. 
+ * Cependant, la fonction n'est pas encore implémentée.
+ * 
+ * @return uint8_t Le nombre de joueurs (non implémenté ici).
+ */
+
 uint8_t Plateau::getNombreJoueur()
 {
+   
 }
+
+/**
+ * @brief Exécute l'action liée à une case du plateau.
+ * 
+ * Cette fonction détermine l'action à effectuer lorsqu'un joueur atterrit sur une case du plateau. 
+ * L'action dépend du type de la case (terrain, gare, chance, etc.) et est exécutée pour le joueur spécifié.
+ * 
+ * @param numCase L'index de la case sur laquelle le joueur se trouve.
+ * @param joueur Une référence au joueur qui doit exécuter l'action.
+ */
 
 void Plateau::executerAction(uint8_t numCase, Joueur &joueur)
 {
     
 }
 
+/**
+ * @brief Ajoute un montant aux impôts collectés.
+ * 
+ * Cette fonction permet d'ajouter un montant donné aux impôts collectés. Elle met également à jour l'affichage 
+ * pour indiquer le montant total des impôts collectés jusqu'à présent.
+ * 
+ * @param montant Le montant des impôts à ajouter.
+ */
+
 void Plateau::ajouterImpots(uint16_t montant)
 {
     impots += montant;
+    cout << "Les impôts collectés s'elevent désormais à " << impots << " mono." << endl;
 }
 
+/**
+ * @brief Retourne le montant total des impôts collectés.
+ * 
+ * Cette fonction permet de récupérer la somme totale des impôts collectés jusqu'à présent.
+ * 
+ * @return uint16_t Le montant des impôts collectés.
+ */
+ 
 uint16_t Plateau::getImpots()
 {
     return impots;

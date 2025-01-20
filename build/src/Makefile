@@ -125,6 +125,168 @@ main/fast:
 	cd /workspaces/tp6-note-christine_tommy_bastien/build && $(MAKE) -f src/CMakeFiles/main.dir/build.make src/CMakeFiles/main.dir/build
 .PHONY : main/fast
 
+Carte.o: Carte.cpp.o
+
+.PHONY : Carte.o
+
+# target to build an object file
+Carte.cpp.o:
+	cd /workspaces/tp6-note-christine_tommy_bastien/build && $(MAKE) -f src/CMakeFiles/main.dir/build.make src/CMakeFiles/main.dir/Carte.cpp.o
+.PHONY : Carte.cpp.o
+
+Carte.i: Carte.cpp.i
+
+.PHONY : Carte.i
+
+# target to preprocess a source file
+Carte.cpp.i:
+	cd /workspaces/tp6-note-christine_tommy_bastien/build && $(MAKE) -f src/CMakeFiles/main.dir/build.make src/CMakeFiles/main.dir/Carte.cpp.i
+.PHONY : Carte.cpp.i
+
+Carte.s: Carte.cpp.s
+
+.PHONY : Carte.s
+
+# target to generate assembly for a file
+Carte.cpp.s:
+	cd /workspaces/tp6-note-christine_tommy_bastien/build && $(MAKE) -f src/CMakeFiles/main.dir/build.make src/CMakeFiles/main.dir/Carte.cpp.s
+.PHONY : Carte.cpp.s
+
+Case.o: Case.cpp.o
+
+.PHONY : Case.o
+
+# target to build an object file
+Case.cpp.o:
+	cd /workspaces/tp6-note-christine_tommy_bastien/build && $(MAKE) -f src/CMakeFiles/main.dir/build.make src/CMakeFiles/main.dir/Case.cpp.o
+.PHONY : Case.cpp.o
+
+Case.i: Case.cpp.i
+
+.PHONY : Case.i
+
+# target to preprocess a source file
+Case.cpp.i:
+	cd /workspaces/tp6-note-christine_tommy_bastien/build && $(MAKE) -f src/CMakeFiles/main.dir/build.make src/CMakeFiles/main.dir/Case.cpp.i
+.PHONY : Case.cpp.i
+
+Case.s: Case.cpp.s
+
+.PHONY : Case.s
+
+# target to generate assembly for a file
+Case.cpp.s:
+	cd /workspaces/tp6-note-christine_tommy_bastien/build && $(MAKE) -f src/CMakeFiles/main.dir/build.make src/CMakeFiles/main.dir/Case.cpp.s
+.PHONY : Case.cpp.s
+
+Chance.o: Chance.cpp.o
+
+.PHONY : Chance.o
+
+# target to build an object file
+Chance.cpp.o:
+	cd /workspaces/tp6-note-christine_tommy_bastien/build && $(MAKE) -f src/CMakeFiles/main.dir/build.make src/CMakeFiles/main.dir/Chance.cpp.o
+.PHONY : Chance.cpp.o
+
+Chance.i: Chance.cpp.i
+
+.PHONY : Chance.i
+
+# target to preprocess a source file
+Chance.cpp.i:
+	cd /workspaces/tp6-note-christine_tommy_bastien/build && $(MAKE) -f src/CMakeFiles/main.dir/build.make src/CMakeFiles/main.dir/Chance.cpp.i
+.PHONY : Chance.cpp.i
+
+Chance.s: Chance.cpp.s
+
+.PHONY : Chance.s
+
+# target to generate assembly for a file
+Chance.cpp.s:
+	cd /workspaces/tp6-note-christine_tommy_bastien/build && $(MAKE) -f src/CMakeFiles/main.dir/build.make src/CMakeFiles/main.dir/Chance.cpp.s
+.PHONY : Chance.cpp.s
+
+Communaute.o: Communaute.cpp.o
+
+.PHONY : Communaute.o
+
+# target to build an object file
+Communaute.cpp.o:
+	cd /workspaces/tp6-note-christine_tommy_bastien/build && $(MAKE) -f src/CMakeFiles/main.dir/build.make src/CMakeFiles/main.dir/Communaute.cpp.o
+.PHONY : Communaute.cpp.o
+
+Communaute.i: Communaute.cpp.i
+
+.PHONY : Communaute.i
+
+# target to preprocess a source file
+Communaute.cpp.i:
+	cd /workspaces/tp6-note-christine_tommy_bastien/build && $(MAKE) -f src/CMakeFiles/main.dir/build.make src/CMakeFiles/main.dir/Communaute.cpp.i
+.PHONY : Communaute.cpp.i
+
+Communaute.s: Communaute.cpp.s
+
+.PHONY : Communaute.s
+
+# target to generate assembly for a file
+Communaute.cpp.s:
+	cd /workspaces/tp6-note-christine_tommy_bastien/build && $(MAKE) -f src/CMakeFiles/main.dir/build.make src/CMakeFiles/main.dir/Communaute.cpp.s
+.PHONY : Communaute.cpp.s
+
+Des.o: Des.cpp.o
+
+.PHONY : Des.o
+
+# target to build an object file
+Des.cpp.o:
+	cd /workspaces/tp6-note-christine_tommy_bastien/build && $(MAKE) -f src/CMakeFiles/main.dir/build.make src/CMakeFiles/main.dir/Des.cpp.o
+.PHONY : Des.cpp.o
+
+Des.i: Des.cpp.i
+
+.PHONY : Des.i
+
+# target to preprocess a source file
+Des.cpp.i:
+	cd /workspaces/tp6-note-christine_tommy_bastien/build && $(MAKE) -f src/CMakeFiles/main.dir/build.make src/CMakeFiles/main.dir/Des.cpp.i
+.PHONY : Des.cpp.i
+
+Des.s: Des.cpp.s
+
+.PHONY : Des.s
+
+# target to generate assembly for a file
+Des.cpp.s:
+	cd /workspaces/tp6-note-christine_tommy_bastien/build && $(MAKE) -f src/CMakeFiles/main.dir/build.make src/CMakeFiles/main.dir/Des.cpp.s
+.PHONY : Des.cpp.s
+
+Gare.o: Gare.cpp.o
+
+.PHONY : Gare.o
+
+# target to build an object file
+Gare.cpp.o:
+	cd /workspaces/tp6-note-christine_tommy_bastien/build && $(MAKE) -f src/CMakeFiles/main.dir/build.make src/CMakeFiles/main.dir/Gare.cpp.o
+.PHONY : Gare.cpp.o
+
+Gare.i: Gare.cpp.i
+
+.PHONY : Gare.i
+
+# target to preprocess a source file
+Gare.cpp.i:
+	cd /workspaces/tp6-note-christine_tommy_bastien/build && $(MAKE) -f src/CMakeFiles/main.dir/build.make src/CMakeFiles/main.dir/Gare.cpp.i
+.PHONY : Gare.cpp.i
+
+Gare.s: Gare.cpp.s
+
+.PHONY : Gare.s
+
+# target to generate assembly for a file
+Gare.cpp.s:
+	cd /workspaces/tp6-note-christine_tommy_bastien/build && $(MAKE) -f src/CMakeFiles/main.dir/build.make src/CMakeFiles/main.dir/Gare.cpp.s
+.PHONY : Gare.cpp.s
+
 Jeu.o: Jeu.cpp.o
 
 .PHONY : Jeu.o
@@ -151,6 +313,168 @@ Jeu.s: Jeu.cpp.s
 Jeu.cpp.s:
 	cd /workspaces/tp6-note-christine_tommy_bastien/build && $(MAKE) -f src/CMakeFiles/main.dir/build.make src/CMakeFiles/main.dir/Jeu.cpp.s
 .PHONY : Jeu.cpp.s
+
+Joueur.o: Joueur.cpp.o
+
+.PHONY : Joueur.o
+
+# target to build an object file
+Joueur.cpp.o:
+	cd /workspaces/tp6-note-christine_tommy_bastien/build && $(MAKE) -f src/CMakeFiles/main.dir/build.make src/CMakeFiles/main.dir/Joueur.cpp.o
+.PHONY : Joueur.cpp.o
+
+Joueur.i: Joueur.cpp.i
+
+.PHONY : Joueur.i
+
+# target to preprocess a source file
+Joueur.cpp.i:
+	cd /workspaces/tp6-note-christine_tommy_bastien/build && $(MAKE) -f src/CMakeFiles/main.dir/build.make src/CMakeFiles/main.dir/Joueur.cpp.i
+.PHONY : Joueur.cpp.i
+
+Joueur.s: Joueur.cpp.s
+
+.PHONY : Joueur.s
+
+# target to generate assembly for a file
+Joueur.cpp.s:
+	cd /workspaces/tp6-note-christine_tommy_bastien/build && $(MAKE) -f src/CMakeFiles/main.dir/build.make src/CMakeFiles/main.dir/Joueur.cpp.s
+.PHONY : Joueur.cpp.s
+
+Pion.o: Pion.cpp.o
+
+.PHONY : Pion.o
+
+# target to build an object file
+Pion.cpp.o:
+	cd /workspaces/tp6-note-christine_tommy_bastien/build && $(MAKE) -f src/CMakeFiles/main.dir/build.make src/CMakeFiles/main.dir/Pion.cpp.o
+.PHONY : Pion.cpp.o
+
+Pion.i: Pion.cpp.i
+
+.PHONY : Pion.i
+
+# target to preprocess a source file
+Pion.cpp.i:
+	cd /workspaces/tp6-note-christine_tommy_bastien/build && $(MAKE) -f src/CMakeFiles/main.dir/build.make src/CMakeFiles/main.dir/Pion.cpp.i
+.PHONY : Pion.cpp.i
+
+Pion.s: Pion.cpp.s
+
+.PHONY : Pion.s
+
+# target to generate assembly for a file
+Pion.cpp.s:
+	cd /workspaces/tp6-note-christine_tommy_bastien/build && $(MAKE) -f src/CMakeFiles/main.dir/build.make src/CMakeFiles/main.dir/Pion.cpp.s
+.PHONY : Pion.cpp.s
+
+Plateau.o: Plateau.cpp.o
+
+.PHONY : Plateau.o
+
+# target to build an object file
+Plateau.cpp.o:
+	cd /workspaces/tp6-note-christine_tommy_bastien/build && $(MAKE) -f src/CMakeFiles/main.dir/build.make src/CMakeFiles/main.dir/Plateau.cpp.o
+.PHONY : Plateau.cpp.o
+
+Plateau.i: Plateau.cpp.i
+
+.PHONY : Plateau.i
+
+# target to preprocess a source file
+Plateau.cpp.i:
+	cd /workspaces/tp6-note-christine_tommy_bastien/build && $(MAKE) -f src/CMakeFiles/main.dir/build.make src/CMakeFiles/main.dir/Plateau.cpp.i
+.PHONY : Plateau.cpp.i
+
+Plateau.s: Plateau.cpp.s
+
+.PHONY : Plateau.s
+
+# target to generate assembly for a file
+Plateau.cpp.s:
+	cd /workspaces/tp6-note-christine_tommy_bastien/build && $(MAKE) -f src/CMakeFiles/main.dir/build.make src/CMakeFiles/main.dir/Plateau.cpp.s
+.PHONY : Plateau.cpp.s
+
+Propriete.o: Propriete.cpp.o
+
+.PHONY : Propriete.o
+
+# target to build an object file
+Propriete.cpp.o:
+	cd /workspaces/tp6-note-christine_tommy_bastien/build && $(MAKE) -f src/CMakeFiles/main.dir/build.make src/CMakeFiles/main.dir/Propriete.cpp.o
+.PHONY : Propriete.cpp.o
+
+Propriete.i: Propriete.cpp.i
+
+.PHONY : Propriete.i
+
+# target to preprocess a source file
+Propriete.cpp.i:
+	cd /workspaces/tp6-note-christine_tommy_bastien/build && $(MAKE) -f src/CMakeFiles/main.dir/build.make src/CMakeFiles/main.dir/Propriete.cpp.i
+.PHONY : Propriete.cpp.i
+
+Propriete.s: Propriete.cpp.s
+
+.PHONY : Propriete.s
+
+# target to generate assembly for a file
+Propriete.cpp.s:
+	cd /workspaces/tp6-note-christine_tommy_bastien/build && $(MAKE) -f src/CMakeFiles/main.dir/build.make src/CMakeFiles/main.dir/Propriete.cpp.s
+.PHONY : Propriete.cpp.s
+
+ServicePublic.o: ServicePublic.cpp.o
+
+.PHONY : ServicePublic.o
+
+# target to build an object file
+ServicePublic.cpp.o:
+	cd /workspaces/tp6-note-christine_tommy_bastien/build && $(MAKE) -f src/CMakeFiles/main.dir/build.make src/CMakeFiles/main.dir/ServicePublic.cpp.o
+.PHONY : ServicePublic.cpp.o
+
+ServicePublic.i: ServicePublic.cpp.i
+
+.PHONY : ServicePublic.i
+
+# target to preprocess a source file
+ServicePublic.cpp.i:
+	cd /workspaces/tp6-note-christine_tommy_bastien/build && $(MAKE) -f src/CMakeFiles/main.dir/build.make src/CMakeFiles/main.dir/ServicePublic.cpp.i
+.PHONY : ServicePublic.cpp.i
+
+ServicePublic.s: ServicePublic.cpp.s
+
+.PHONY : ServicePublic.s
+
+# target to generate assembly for a file
+ServicePublic.cpp.s:
+	cd /workspaces/tp6-note-christine_tommy_bastien/build && $(MAKE) -f src/CMakeFiles/main.dir/build.make src/CMakeFiles/main.dir/ServicePublic.cpp.s
+.PHONY : ServicePublic.cpp.s
+
+Terrain.o: Terrain.cpp.o
+
+.PHONY : Terrain.o
+
+# target to build an object file
+Terrain.cpp.o:
+	cd /workspaces/tp6-note-christine_tommy_bastien/build && $(MAKE) -f src/CMakeFiles/main.dir/build.make src/CMakeFiles/main.dir/Terrain.cpp.o
+.PHONY : Terrain.cpp.o
+
+Terrain.i: Terrain.cpp.i
+
+.PHONY : Terrain.i
+
+# target to preprocess a source file
+Terrain.cpp.i:
+	cd /workspaces/tp6-note-christine_tommy_bastien/build && $(MAKE) -f src/CMakeFiles/main.dir/build.make src/CMakeFiles/main.dir/Terrain.cpp.i
+.PHONY : Terrain.cpp.i
+
+Terrain.s: Terrain.cpp.s
+
+.PHONY : Terrain.s
+
+# target to generate assembly for a file
+Terrain.cpp.s:
+	cd /workspaces/tp6-note-christine_tommy_bastien/build && $(MAKE) -f src/CMakeFiles/main.dir/build.make src/CMakeFiles/main.dir/Terrain.cpp.s
+.PHONY : Terrain.cpp.s
 
 main.o: main.cpp.o
 
@@ -188,9 +512,45 @@ help:
 	@echo "... rebuild_cache"
 	@echo "... edit_cache"
 	@echo "... main"
+	@echo "... Carte.o"
+	@echo "... Carte.i"
+	@echo "... Carte.s"
+	@echo "... Case.o"
+	@echo "... Case.i"
+	@echo "... Case.s"
+	@echo "... Chance.o"
+	@echo "... Chance.i"
+	@echo "... Chance.s"
+	@echo "... Communaute.o"
+	@echo "... Communaute.i"
+	@echo "... Communaute.s"
+	@echo "... Des.o"
+	@echo "... Des.i"
+	@echo "... Des.s"
+	@echo "... Gare.o"
+	@echo "... Gare.i"
+	@echo "... Gare.s"
 	@echo "... Jeu.o"
 	@echo "... Jeu.i"
 	@echo "... Jeu.s"
+	@echo "... Joueur.o"
+	@echo "... Joueur.i"
+	@echo "... Joueur.s"
+	@echo "... Pion.o"
+	@echo "... Pion.i"
+	@echo "... Pion.s"
+	@echo "... Plateau.o"
+	@echo "... Plateau.i"
+	@echo "... Plateau.s"
+	@echo "... Propriete.o"
+	@echo "... Propriete.i"
+	@echo "... Propriete.s"
+	@echo "... ServicePublic.o"
+	@echo "... ServicePublic.i"
+	@echo "... ServicePublic.s"
+	@echo "... Terrain.o"
+	@echo "... Terrain.i"
+	@echo "... Terrain.s"
 	@echo "... main.o"
 	@echo "... main.i"
 	@echo "... main.s"

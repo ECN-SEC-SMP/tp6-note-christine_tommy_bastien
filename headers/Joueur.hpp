@@ -6,6 +6,8 @@
 #include "Propriete.hpp"
 #include "Plateau.hpp"
 #include "Des.hpp"
+#include "Pion.hpp"
+#include "Jeu.hpp"
 
 using namespace std;
 
@@ -17,24 +19,26 @@ private:
     bool prison;
     bool carteChancePrison;
     vector<Propriete *> proprietes;
-    uint8_t position;
+    Pion pion;
+    Jeu jeu;
 
 public:
+    Joueur();
     void setNom();
     string getNom();
     uint8_t getPosition();
     bool lancerDes(Des &des);
-    void avancer_pion(uint8_t nombre);
-    void acheterPropriete(Joueur joueur,Propriete *);
+    void avancer(uint8_t nombre);
+    void acheterPropriete(Joueur joueur, Propriete *);
     void vendrePropriete(Propriete *);
-    vector<Propriete*> getProprietes();
+    vector<Propriete *> getProprietes();
     void tirer_carte_chance();
     void tirer_carte_communaute();
     void recevoir_argent(uint16_t montant);
     void payer_joueur(uint16_t montant, Joueur joueur_a_payer);
     void payer_banque(uint16_t montant);
     void payer_impots(uint16_t montant, Plateau &plateau);
-    void aller_prison(Pion pion);
+    void aller_prison();
     void sortir_prison();
     void Faillite();
     void afficherProprietes();
@@ -42,4 +46,6 @@ public:
     uint8_t getNombreMaisons();
     void ajouterMaison(Propriete &propriete);
     void ajouterHotel(Propriete &propriete);
+    void aller_a_une_case(uint8_t val_des);
+    void aller_a_une_case_absolue(uint8_t val_case);
 };

@@ -2,6 +2,12 @@
 #include "../headers/Joueur.hpp"
 #include "../headers/Pion.hpp"
 
+/**
+ * @brief Constructeur de la classe Chance.
+ * 
+ * Initialise toutes les cartes Chance avec leurs effets.
+ */
+
 Chance::Chance()
 {
     this->cartesChance = {
@@ -23,29 +29,41 @@ Chance::Chance()
         "Votre immeuble et votre prêt rapportent. Vous devez toucher 150 mono"};
 }
 
+/**
+ * @brief Affiche le nom de la carte Chance tirée.
+ */
+
 void Chance::afficherNomCarte()
 {
     cout << "Carte tirée : " << this->cartesChance[this->nbRandom] << endl;
 }
 
-void Chance::appliquerEffet(Joueur &joueur, Pion pion)
+/**
+ * @brief Applique l'effet de la carte Chance tirée au joueur.
+ * 
+ * En fonction de la carte tirée, le joueur peut avancer, reculer, payer des taxes ou recevoir de l'argent.
+ * 
+ * @param joueur Référence vers le joueur affecté par la carte Chance.
+ */
+ 
+void Chance::appliquerEffet(Joueur &joueur)
 {
     switch (this->nbRandom)
     {
         case 0:
-            joueur.avancer_pion(39 - joueur.getPosition());
+            joueur.avancer(39 - joueur.getPosition());
             break;
         case 1:
-            joueur.avancer_pion(40 - joueur.getPosition());
+            joueur.avancer(40 - joueur.getPosition());
             joueur.recevoir_argent(200);
             break;
         case 2:
             if (joueur.getPosition() > 24) joueur.recevoir_argent(200);
-            joueur.avancer_pion(24 - joueur.getPosition());
+            joueur.avancer(24 - joueur.getPosition());
             break;
         case 3:
             if (joueur.getPosition() > 11) joueur.recevoir_argent(200);
-            joueur.avancer_pion(11 - joueur.getPosition());
+            joueur.avancer(11 - joueur.getPosition());
             break;
         case 4:
             cout << joueur.getNom() << " doit payer 40 mono par maison et 115 mono par hôtel." << endl;
@@ -53,7 +71,7 @@ void Chance::appliquerEffet(Joueur &joueur, Pion pion)
             break;
         case 5:
             if (joueur.getPosition() > 15) joueur.recevoir_argent(200);
-            joueur.avancer_pion(15 - joueur.getPosition());
+            joueur.avancer(15 - joueur.getPosition());
             break;
         case 6:
             joueur.recevoir_argent(100);
@@ -66,10 +84,10 @@ void Chance::appliquerEffet(Joueur &joueur, Pion pion)
             //joueur.recevoir_carte_sortie_prison();
             break;
         case 9:
-            joueur.avancer_pion(-3);
+            joueur.avancer(-3);
             break;
         case 10:
-            joueur.aller_prison(pion);
+            joueur.aller_prison();
             break;
         case 11:
             joueur.payer_banque(25 * joueur.getNombreMaisons() + 100 * joueur.getNombreHotels());

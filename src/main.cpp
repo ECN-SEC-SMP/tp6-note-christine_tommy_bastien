@@ -1,12 +1,12 @@
-#include "../headers/Joueur.hpp"
-#include "../headers/Plateau.hpp"
-#include "../headers/Jeu.hpp"
 #include <iostream>
 #include <string>
+#include "../headers/Jeu.hpp"
 
 using namespace std;
 
-int main() {
-
-
+int main()
+{
+    Jeu jeu;
+    jeu.demarrerPartie();
+    return 0;
 }

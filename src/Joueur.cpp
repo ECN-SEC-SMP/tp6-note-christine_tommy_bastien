@@ -2,14 +2,36 @@
 #include "../headers/Propriete.hpp"
 #include "../headers/Plateau.hpp"
 #include "../headers/Pion.hpp"
+#include "../headers/Carte.hpp"
+#include "../headers/Communaute.hpp"
 
 using namespace std;
 
+/**
+ * @brief Constructeur par défaut de la classe Joueur.
+ * 
+ * Initialise les attributs de l'objet Joueur, notamment l'argent de départ et les statuts.
+ */
+Joueur::Joueur()
+{
+    argent_total = 1500;
+    prison = false;
+    carteChancePrison = false;
+}
+
+/**
+ * @brief Obtient le nom du joueur.
+ * 
+ * @return string Le nom du joueur.
+ */
 string Joueur::getNom()
 {
     return this->nom;
 }
 
+/**
+ * @brief Définit le nom du joueur en demandant à l'utilisateur de l'entrer.
+ */
 void Joueur::setNom()
 {
     cout << "Nom du joueur : " << endl;
@@ -18,10 +40,23 @@ void Joueur::setNom()
     this->nom = nom;
 }
 
+/**
+ * @brief Obtient la position actuelle du pion du joueur sur le plateau.
+ * 
+ * @return uint8_t La position actuelle du pion.
+ */
+
 uint8_t Joueur::getPosition()
 {
-    return position;
+    return pion.getPosition();
 }
+
+/**
+ * @brief Lance les dés et retourne vrai si un double est obtenu.
+ * 
+ * @param des Référence à l'objet Des utilisé pour le lancer.
+ * @return bool Indique si un double a été obtenu.
+ */
 
 bool Joueur::lancerDes(Des &des)
 {
@@ -31,82 +66,133 @@ bool Joueur::lancerDes(Des &des)
     return checkDouble;
 }
 
-void Joueur::avancer_pion(uint8_t nombre)
+/**
+ * @brief Fait avancer le pion du joueur d'un certain nombre de cases.
+ * 
+ * @param nombre Le nombre de cases à avancer.
+ */
+void Joueur::avancer(uint8_t nombre)
 {
-    //  pion.setPosition(+nombre);
-    //  if (pion.getPosition() >= 40) 
-    // {
-    //     pion.position -= 40;
-    //     cout << nom << " passe par la case Départ et reçoit 200 mono." << endl;
-    //     recevoir_argent(200);
-    // }
-    // cout << nom << " avance de " << static_cast<int>(nombre) << " cases et se trouve sur la case " << static_cast<int>(position) << "." << endl;
+    this->pion.setPosition(pion.getPosition() + nombre);
+    if (pion.getPosition() >= 40)
+    {
+        this->pion.setPosition(pion.getPosition() - 40);
+        cout << nom << " passe par la case Départ et reçoit 200 mono." << endl;
+        this->recevoir_argent(200);
+    }
+    cout << nom << " avance de " << static_cast<int>(nombre) << " cases et se trouve sur la case " << static_cast<int>(pion.getPosition()) << "." << endl;
 }
 
-void Joueur::acheterPropriete(Joueur joueur, Propriete * propriete)
+
+/**
+ * @brief Achète une propriété si le joueur a suffisamment d'argent.
+ * 
+ * @param joueur Le joueur acheteur.
+ * @param propriete Pointeur vers la propriété à acheter.
+ */
+
+void Joueur::acheterPropriete(Joueur joueur, Propriete *propriete)
 {
-    if(argent_total>= propriete->getprix())
+    if (argent_total >= propriete->getprix())
     {
         argent_total -= propriete->getprix();
         proprietes.push_back(propriete);
         propriete->setProprietaire(joueur);
         cout << nom << " a acheté la propriété " << propriete->getNom() << " pour " << propriete->getprix() << " mono." << endl;
     }
-    else 
+    else
     {
         cout << nom << " n'a pas assez d'argent pour acheter " << propriete->getNom() << "." << endl;
     }
 }
 
+
 void Joueur::vendrePropriete(Propriete *)
 {
 }
 
-vector<Propriete*> Joueur::getProprietes()
+/**
+ * @brief Retourne la liste des propriétés possédées par le joueur.
+ * 
+ * @return vector<Propriete *> Liste des propriétés possédées.
+ */
+
+vector<Propriete *> Joueur::getProprietes()
 {
     return proprietes;
 }
 
+/**
+ * @brief Le joueur tire une carte Chance et applique ses effets.
+ */
 void Joueur::tirer_carte_chance()
 {
+    Chance carteChance;
+    carteChance.tirerCarte();
+    carteChance.afficherNomCarte();
+    carteChance.appliquerEffet(*this);
 }
 
+/**
+ * @brief Le joueur tire une carte Caisse de communauté et applique ses effets.
+ */
 void Joueur::tirer_carte_communaute()
 {
+    Communaute carteCommunaute;
+    carteCommunaute.tirerCarte();
+    carteCommunaute.afficherNomCarte();
+    carteCommunaute.appliquerEffet(*this, jeu.getNbJoueur(), jeu.getVecteurJoueurs());
 }
 
+/**
+ * @brief Le joueur reçoit une somme d'argent.
+ * 
+ * @param montant Le montant d'argent reçu.
+ */
 void Joueur::recevoir_argent(uint16_t montant)
 {
     argent_total += montant;
     cout << nom << " reçoit " << montant << " mono." << endl;
 }
 
+/**
+ * @brief Le joueur paie un montant à un autre joueur.
+ * 
+ * @param montant Le montant à payer.
+ * @param joueur_a_payer Le joueur à qui payer.
+ */
 void Joueur::payer_joueur(uint16_t montant, Joueur joueur_a_payer)
 {
-     if (argent_total >= montant) 
+    if (argent_total >= montant)
     {
         argent_total -= montant;
         joueur_a_payer.recevoir_argent(montant);
         cout << nom << " a payé " << montant << " mono à " << joueur_a_payer.getNom() << "." << endl;
     }
-    else 
+    else
     {
         cout << nom << " n'a pas assez d'argent pour payer " << joueur_a_payer.getNom() << "." << endl;
     }
 }
 
+/**
+ * @brief Le joueur paie un montant à la banque.
+ * 
+ * @param montant Le montant à payer.
+ */
 void Joueur::payer_banque(uint16_t montant)
 {
-    if (argent_total >= montant) 
+    if (argent_total >= montant)
     {
         argent_total -= montant;
         cout << nom << " a payé " << montant << " mono à la banque." << endl;
     }
-    else 
+    else
     {
         cout << nom << " n'a pas assez d'argent pour payer la banque." << endl;
     }
 }
+
 
 void Joueur::payer_impots(uint16_t montant, Plateau &plateau)
 {
@@ -119,14 +205,14 @@ void Joueur::payer_impots(uint16_t montant, Plateau &plateau)
     else
     {
         cout << nom << " n'a pas assez d'argent pour payer les impôts. Il doit vendre" << endl;
-      
-        if (!proprietes.empty()) 
+
+        if (!proprietes.empty())
         {
             afficherProprietes();
             cout << "Choisissez le numéro de la propriété à vendre (1-" << proprietes.size() << "): ";
             size_t choix;
             cin >> choix;
-             if (choix > 0 && choix <= proprietes.size())
+            if (choix > 0 && choix <= proprietes.size())
             {
                 vendrePropriete(proprietes[choix - 1]);
             }
@@ -144,16 +230,22 @@ void Joueur::payer_impots(uint16_t montant, Plateau &plateau)
     }
 }
 
-void Joueur::aller_prison(Pion pion)
+/**
+ * @brief Envoie le joueur en prison.
+ */
+void Joueur::aller_prison()
 {
     prison = true;
     pion.setPosition(10);
     cout << nom << " est envoyé en prison. CETTE RACAILLE" << endl;
 }
 
+/**
+ * @brief Libère le joueur de la prison.
+ */
 void Joueur::sortir_prison()
 {
-     if (prison)
+    if (prison)
     {
         prison = false;
         cout << nom << " est libéré de prison." << endl;
@@ -164,10 +256,17 @@ void Joueur::sortir_prison()
     }
 }
 
-void Joueur::Faillite(){
+/**
+ * @brief Déclare la faillite du joueur.
+ */
+void Joueur::Faillite()
+{
     cout << nom << " est en faillite. THE END" << endl;
 }
 
+/**
+ * @brief Affiche les propriétés possédées par le joueur.
+ */
 void Joueur::afficherProprietes()
 {
     if (proprietes.empty())
@@ -183,13 +282,19 @@ void Joueur::afficherProprietes()
     }
 }
 
-
+/**
+ * @brief Retourne le nombre total d'hôtels possédés par le joueur.
+ * 
+ * Cette méthode parcourt toutes les propriétés du joueur et compte celles qui possèdent un hôtel.
+ * 
+ * @return uint8_t Le nombre d'hôtels détenus par le joueur.
+ */
 uint8_t Joueur::getNombreHotels()
 {
     uint8_t nombreHotels = 0;
     for (auto propriete : proprietes)
     {
-        if (propriete->estHotel()) 
+        if (propriete->estHotel())
         {
             nombreHotels++;
         }
@@ -197,12 +302,19 @@ uint8_t Joueur::getNombreHotels()
     return nombreHotels;
 }
 
+/**
+ * @brief Retourne le nombre total de maisons possédées par le joueur.
+ * 
+ * Cette méthode parcourt toutes les propriétés du joueur et compte celles qui possèdent au moins une maison.
+ * 
+ * @return uint8_t Le nombre total de maisons.
+ */
 uint8_t Joueur::getNombreMaisons()
 {
     uint8_t nombreMaisons = 0;
     for (auto propriete : proprietes)
     {
-        if (propriete->estMaison()) 
+        if (propriete->estMaison())
         {
             nombreMaisons++;
         }
@@ -210,43 +322,84 @@ uint8_t Joueur::getNombreMaisons()
     return nombreMaisons;
 }
 
-
-
-void Joueur::ajouterMaison(Propriete &propriete) {
-     if (propriete.estAchetee()) {
-            uint16_t prixMaison = propriete.getPrixMaison(position);
-            if (argent_total >= prixMaison && prixMaison > 0) {
-                argent_total -= prixMaison;
-                propriete.ajouterMaison();
-                cout << nom << " a ajouté une maison sur " << propriete.getNom() << " pour " << prixMaison << " mono." << endl;
-            } else {
-                cout << nom << " n'a pas assez d'argent pour ajouter une maison sur " << propriete.getNom() << "." << endl;
-            }
-        } else {
-            cout << "La propriété " << propriete.getNom() << " n'appartient pas à " << nom << "." << endl;
-        }
-}
-
-void Joueur::ajouterHotel(Propriete &propriete) 
+/**
+ * @brief Ajoute une maison sur une propriété possédée par le joueur.
+ * 
+ * Cette méthode permet au joueur d'ajouter une maison sur une propriété s'il en est le propriétaire
+ * et s'il possède suffisamment d'argent. Le coût de la maison est déterminé en fonction de la position de la propriété.
+ * 
+ * @param propriete Référence vers l'objet Propriete où la maison sera ajoutée.
+ */
+void Joueur::ajouterMaison(Propriete &propriete)
 {
-    if (propriete.estAchetee()) 
+    if (propriete.estAchetee())
     {
-        uint16_t prixHotel = propriete.getPrixHotel(position);
-        if (argent_total >= prixHotel) 
+        uint16_t prixMaison = propriete.getPrixMaison(pion.getPosition());
+        if (argent_total >= prixMaison && prixMaison > 0)
         {
-            argent_total -= prixHotel;
-            propriete.ajouterHotel();
-            cout << nom << " a ajouté un hôtel sur " << propriete.getNom() << " pour " << prixHotel << " mono." << endl;
-        } 
-        else 
-        {
-            cout << nom << " n'a pas assez d'argent pour ajouter un hôtel sur " << propriete.getNom() << "." << endl;
+            argent_total -= prixMaison;
+            propriete.ajouterMaison();
+            cout << nom << " a ajouté une maison sur " << propriete.getNom() << " pour " << prixMaison << " mono." << endl;
         }
-    } 
-    else 
+        else
+        {
+            cout << nom << " n'a pas assez d'argent pour ajouter une maison sur " << propriete.getNom() << "." << endl;
+        }
+    }
+    else
     {
         cout << "La propriété " << propriete.getNom() << " n'appartient pas à " << nom << "." << endl;
     }
 }
 
+/**
+ * @brief Ajoute un hôtel sur une propriété possédée par le joueur.
+ * 
+ * Cette méthode permet d'ajouter un hôtel sur une propriété si toutes les conditions sont remplies :
+ * - Le joueur doit posséder la propriété.
+ * - Le joueur doit avoir assez d'argent pour acheter un hôtel.
+ * - La propriété doit déjà avoir le nombre requis de maisons avant d'ajouter un hôtel.
+ * 
+ * @param propriete Référence vers l'objet Propriete où l'hôtel sera ajouté.
+ */
+void Joueur::ajouterHotel(Propriete &propriete)
+{
+    if (propriete.estAchetee())
+    {
+        uint16_t prixHotel = propriete.getPrixHotel(pion.getPosition());
+        if (argent_total >= prixHotel)
+        {
+            argent_total -= prixHotel;
+            propriete.ajouterHotel();
+            cout << nom << " a ajouté un hôtel sur " << propriete.getNom() << " pour " << prixHotel << " mono." << endl;
+        }
+        else
+        {
+            cout << nom << " n'a pas assez d'argent pour ajouter un hôtel sur " << propriete.getNom() << "." << endl;
+        }
+    }
+    else
+    {
+        cout << "La propriété " << propriete.getNom() << " n'appartient pas à " << nom << "." << endl;
+    }
+}
 
+/**
+ * @brief Déplace le joueur d'un nombre de cases relatif à sa position actuelle.
+ * 
+ * @param val_des Le nombre de cases à avancer.
+ */
+void Joueur::aller_a_une_case(uint8_t val_des)
+{
+    pion.setPosition(val_des + pion.getPosition());
+}
+
+/**
+ * @brief Déplace le joueur à une case spécifique.
+ * 
+ * @param val_case La case cible.
+ */
+void Joueur::aller_a_une_case_absolue(uint8_t val_case)
+{
+    pion.setPosition(val_case);
+}

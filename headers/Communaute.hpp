@@ -10,5 +10,6 @@ private:
 
 public:
     Communaute();
-    void appliquerEffet(Joueur &joueur);
+    void appliquerEffet(Joueur &joueur, uint8_t nbJoueurs, vector<Joueur> joueurs);
+    void afficherNomCarte();
 };

@@ -8,20 +8,22 @@
 
 using namespace std;
 
-class Jeu {
-    private:
-        uint8_t nombreJoueurs;
-        uint8_t tour;
-        Des des;
-        Plateau plateau;
-        vector<Joueur> joueurs;
+class Jeu
+{
+private:
+    uint8_t nombreJoueurs;
+    uint8_t tour;
+    Des des;
+    Plateau plateau;
+    vector<Joueur> joueurs;
 
-        void askNombreJoueurs();
-        void demarrerTour();
-        void incrementerTour();
-        void finDePartie();
+    void askNombreJoueurs();
+    void demarrerTour();
+    void finDePartie();
 
-    public:
-        Jeu();
-        void demarrerPartie();
+public:
+    Jeu();
+    void demarrerPartie();
+    uint8_t getNbJoueur();
+    vector<Joueur> getVecteurJoueurs();
 };

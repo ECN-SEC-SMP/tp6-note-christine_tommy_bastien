@@ -12,5 +12,5 @@ private:
 public:
     Chance(); // constructeur
     void afficherNomCarte();
-    void appliquerEffet(Joueur &joueur, Pion pion);
+    void appliquerEffet(Joueur &joueur);
 };
