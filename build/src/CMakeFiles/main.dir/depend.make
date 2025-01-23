@@ -3,17 +3,6 @@
 
 src/CMakeFiles/main.dir/Carte.cpp.o: ../headers/Carte.hpp
 src/CMakeFiles/main.dir/Carte.cpp.o: ../headers/Case.hpp
-src/CMakeFiles/main.dir/Carte.cpp.o: ../headers/Chance.hpp
-src/CMakeFiles/main.dir/Carte.cpp.o: ../headers/Communaute.hpp
-src/CMakeFiles/main.dir/Carte.cpp.o: ../headers/Des.hpp
-src/CMakeFiles/main.dir/Carte.cpp.o: ../headers/Gare.hpp
-src/CMakeFiles/main.dir/Carte.cpp.o: ../headers/Jeu.hpp
-src/CMakeFiles/main.dir/Carte.cpp.o: ../headers/Joueur.hpp
-src/CMakeFiles/main.dir/Carte.cpp.o: ../headers/Pion.hpp
-src/CMakeFiles/main.dir/Carte.cpp.o: ../headers/Plateau.hpp
-src/CMakeFiles/main.dir/Carte.cpp.o: ../headers/Propriete.hpp
-src/CMakeFiles/main.dir/Carte.cpp.o: ../headers/ServicePublic.hpp
-src/CMakeFiles/main.dir/Carte.cpp.o: ../headers/Terrain.hpp
 src/CMakeFiles/main.dir/Carte.cpp.o: ../src/Carte.cpp
 
 src/CMakeFiles/main.dir/Case.cpp.o: ../headers/Carte.hpp
@@ -22,7 +11,6 @@ src/CMakeFiles/main.dir/Case.cpp.o: ../headers/Chance.hpp
 src/CMakeFiles/main.dir/Case.cpp.o: ../headers/Communaute.hpp
 src/CMakeFiles/main.dir/Case.cpp.o: ../headers/Des.hpp
 src/CMakeFiles/main.dir/Case.cpp.o: ../headers/Gare.hpp
-src/CMakeFiles/main.dir/Case.cpp.o: ../headers/Jeu.hpp
 src/CMakeFiles/main.dir/Case.cpp.o: ../headers/Joueur.hpp
 src/CMakeFiles/main.dir/Case.cpp.o: ../headers/Pion.hpp
 src/CMakeFiles/main.dir/Case.cpp.o: ../headers/Plateau.hpp
@@ -34,16 +22,10 @@ src/CMakeFiles/main.dir/Case.cpp.o: ../src/Case.cpp
 src/CMakeFiles/main.dir/Chance.cpp.o: ../headers/Carte.hpp
 src/CMakeFiles/main.dir/Chance.cpp.o: ../headers/Case.hpp
 src/CMakeFiles/main.dir/Chance.cpp.o: ../headers/Chance.hpp
-src/CMakeFiles/main.dir/Chance.cpp.o: ../headers/Communaute.hpp
 src/CMakeFiles/main.dir/Chance.cpp.o: ../headers/Des.hpp
-src/CMakeFiles/main.dir/Chance.cpp.o: ../headers/Gare.hpp
-src/CMakeFiles/main.dir/Chance.cpp.o: ../headers/Jeu.hpp
 src/CMakeFiles/main.dir/Chance.cpp.o: ../headers/Joueur.hpp
 src/CMakeFiles/main.dir/Chance.cpp.o: ../headers/Pion.hpp
-src/CMakeFiles/main.dir/Chance.cpp.o: ../headers/Plateau.hpp
 src/CMakeFiles/main.dir/Chance.cpp.o: ../headers/Propriete.hpp
-src/CMakeFiles/main.dir/Chance.cpp.o: ../headers/ServicePublic.hpp
-src/CMakeFiles/main.dir/Chance.cpp.o: ../headers/Terrain.hpp
 src/CMakeFiles/main.dir/Chance.cpp.o: ../src/Chance.cpp
 
 src/CMakeFiles/main.dir/Communaute.cpp.o: ../headers/Carte.hpp
@@ -52,7 +34,6 @@ src/CMakeFiles/main.dir/Communaute.cpp.o: ../headers/Chance.hpp
 src/CMakeFiles/main.dir/Communaute.cpp.o: ../headers/Communaute.hpp
 src/CMakeFiles/main.dir/Communaute.cpp.o: ../headers/Des.hpp
 src/CMakeFiles/main.dir/Communaute.cpp.o: ../headers/Gare.hpp
-src/CMakeFiles/main.dir/Communaute.cpp.o: ../headers/Jeu.hpp
 src/CMakeFiles/main.dir/Communaute.cpp.o: ../headers/Joueur.hpp
 src/CMakeFiles/main.dir/Communaute.cpp.o: ../headers/Pion.hpp
 src/CMakeFiles/main.dir/Communaute.cpp.o: ../headers/Plateau.hpp
@@ -64,19 +45,9 @@ src/CMakeFiles/main.dir/Communaute.cpp.o: ../src/Communaute.cpp
 src/CMakeFiles/main.dir/Des.cpp.o: ../headers/Des.hpp
 src/CMakeFiles/main.dir/Des.cpp.o: ../src/Des.cpp
 
-src/CMakeFiles/main.dir/Gare.cpp.o: ../headers/Carte.hpp
 src/CMakeFiles/main.dir/Gare.cpp.o: ../headers/Case.hpp
-src/CMakeFiles/main.dir/Gare.cpp.o: ../headers/Chance.hpp
-src/CMakeFiles/main.dir/Gare.cpp.o: ../headers/Communaute.hpp
-src/CMakeFiles/main.dir/Gare.cpp.o: ../headers/Des.hpp
 src/CMakeFiles/main.dir/Gare.cpp.o: ../headers/Gare.hpp
-src/CMakeFiles/main.dir/Gare.cpp.o: ../headers/Jeu.hpp
-src/CMakeFiles/main.dir/Gare.cpp.o: ../headers/Joueur.hpp
-src/CMakeFiles/main.dir/Gare.cpp.o: ../headers/Pion.hpp
-src/CMakeFiles/main.dir/Gare.cpp.o: ../headers/Plateau.hpp
 src/CMakeFiles/main.dir/Gare.cpp.o: ../headers/Propriete.hpp
-src/CMakeFiles/main.dir/Gare.cpp.o: ../headers/ServicePublic.hpp
-src/CMakeFiles/main.dir/Gare.cpp.o: ../headers/Terrain.hpp
 src/CMakeFiles/main.dir/Gare.cpp.o: ../src/Gare.cpp
 
 src/CMakeFiles/main.dir/Jeu.cpp.o: ../headers/Carte.hpp
@@ -119,7 +90,6 @@ src/CMakeFiles/main.dir/Plateau.cpp.o: ../headers/Chance.hpp
 src/CMakeFiles/main.dir/Plateau.cpp.o: ../headers/Communaute.hpp
 src/CMakeFiles/main.dir/Plateau.cpp.o: ../headers/Des.hpp
 src/CMakeFiles/main.dir/Plateau.cpp.o: ../headers/Gare.hpp
-src/CMakeFiles/main.dir/Plateau.cpp.o: ../headers/Jeu.hpp
 src/CMakeFiles/main.dir/Plateau.cpp.o: ../headers/Joueur.hpp
 src/CMakeFiles/main.dir/Plateau.cpp.o: ../headers/Pion.hpp
 src/CMakeFiles/main.dir/Plateau.cpp.o: ../headers/Plateau.hpp
@@ -128,48 +98,20 @@ src/CMakeFiles/main.dir/Plateau.cpp.o: ../headers/ServicePublic.hpp
 src/CMakeFiles/main.dir/Plateau.cpp.o: ../headers/Terrain.hpp
 src/CMakeFiles/main.dir/Plateau.cpp.o: ../src/Plateau.cpp
 
-src/CMakeFiles/main.dir/Propriete.cpp.o: ../headers/Carte.hpp
 src/CMakeFiles/main.dir/Propriete.cpp.o: ../headers/Case.hpp
-src/CMakeFiles/main.dir/Propriete.cpp.o: ../headers/Chance.hpp
-src/CMakeFiles/main.dir/Propriete.cpp.o: ../headers/Communaute.hpp
 src/CMakeFiles/main.dir/Propriete.cpp.o: ../headers/Des.hpp
-src/CMakeFiles/main.dir/Propriete.cpp.o: ../headers/Gare.hpp
-src/CMakeFiles/main.dir/Propriete.cpp.o: ../headers/Jeu.hpp
 src/CMakeFiles/main.dir/Propriete.cpp.o: ../headers/Joueur.hpp
 src/CMakeFiles/main.dir/Propriete.cpp.o: ../headers/Pion.hpp
-src/CMakeFiles/main.dir/Propriete.cpp.o: ../headers/Plateau.hpp
 src/CMakeFiles/main.dir/Propriete.cpp.o: ../headers/Propriete.hpp
-src/CMakeFiles/main.dir/Propriete.cpp.o: ../headers/ServicePublic.hpp
-src/CMakeFiles/main.dir/Propriete.cpp.o: ../headers/Terrain.hpp
 src/CMakeFiles/main.dir/Propriete.cpp.o: ../src/Propriete.cpp
 
-src/CMakeFiles/main.dir/ServicePublic.cpp.o: ../headers/Carte.hpp
 src/CMakeFiles/main.dir/ServicePublic.cpp.o: ../headers/Case.hpp
-src/CMakeFiles/main.dir/ServicePublic.cpp.o: ../headers/Chance.hpp
-src/CMakeFiles/main.dir/ServicePublic.cpp.o: ../headers/Communaute.hpp
-src/CMakeFiles/main.dir/ServicePublic.cpp.o: ../headers/Des.hpp
-src/CMakeFiles/main.dir/ServicePublic.cpp.o: ../headers/Gare.hpp
-src/CMakeFiles/main.dir/ServicePublic.cpp.o: ../headers/Jeu.hpp
-src/CMakeFiles/main.dir/ServicePublic.cpp.o: ../headers/Joueur.hpp
-src/CMakeFiles/main.dir/ServicePublic.cpp.o: ../headers/Pion.hpp
-src/CMakeFiles/main.dir/ServicePublic.cpp.o: ../headers/Plateau.hpp
 src/CMakeFiles/main.dir/ServicePublic.cpp.o: ../headers/Propriete.hpp
 src/CMakeFiles/main.dir/ServicePublic.cpp.o: ../headers/ServicePublic.hpp
-src/CMakeFiles/main.dir/ServicePublic.cpp.o: ../headers/Terrain.hpp
 src/CMakeFiles/main.dir/ServicePublic.cpp.o: ../src/ServicePublic.cpp
 
-src/CMakeFiles/main.dir/Terrain.cpp.o: ../headers/Carte.hpp
 src/CMakeFiles/main.dir/Terrain.cpp.o: ../headers/Case.hpp
-src/CMakeFiles/main.dir/Terrain.cpp.o: ../headers/Chance.hpp
-src/CMakeFiles/main.dir/Terrain.cpp.o: ../headers/Communaute.hpp
-src/CMakeFiles/main.dir/Terrain.cpp.o: ../headers/Des.hpp
-src/CMakeFiles/main.dir/Terrain.cpp.o: ../headers/Gare.hpp
-src/CMakeFiles/main.dir/Terrain.cpp.o: ../headers/Jeu.hpp
-src/CMakeFiles/main.dir/Terrain.cpp.o: ../headers/Joueur.hpp
-src/CMakeFiles/main.dir/Terrain.cpp.o: ../headers/Pion.hpp
-src/CMakeFiles/main.dir/Terrain.cpp.o: ../headers/Plateau.hpp
 src/CMakeFiles/main.dir/Terrain.cpp.o: ../headers/Propriete.hpp
-src/CMakeFiles/main.dir/Terrain.cpp.o: ../headers/ServicePublic.hpp
 src/CMakeFiles/main.dir/Terrain.cpp.o: ../headers/Terrain.hpp
 src/CMakeFiles/main.dir/Terrain.cpp.o: ../src/Terrain.cpp
 

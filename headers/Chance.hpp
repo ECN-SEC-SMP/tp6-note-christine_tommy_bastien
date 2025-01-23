@@ -10,7 +10,8 @@ private:
     vector<string> cartesChance;
 
 public:
-    Chance(); // constructeur
+    Chance() ;
+    Chance(std::string nom); // constructeur
     void afficherNomCarte();
     void appliquerEffet(Joueur &joueur);
 };

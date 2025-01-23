@@ -7,8 +7,11 @@
  * 
  * Initialise toutes les cartes Chance avec leurs effets.
  */
+Chance::Chance() {
+    // Implémentation du constructeur (peut être vide si non nécessaire)
+}
 
-Chance::Chance()
+Chance::Chance(std::string nom)
 {
     this->cartesChance = {
         "Rendez-vous à la Rue de la Paix",

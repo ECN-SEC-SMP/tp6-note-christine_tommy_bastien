@@ -5,7 +5,7 @@
 
 class Des { 
     private:
-        uint8_t valDe1, valDe2;
+        int valDe1, valDe2;
 
     public:
         Des();  //Constructeur

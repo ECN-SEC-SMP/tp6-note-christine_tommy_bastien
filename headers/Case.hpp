@@ -2,20 +2,26 @@
 
 #include <iostream>
 #include <string>
-#include "Joueur.hpp"
-#include "Plateau.hpp"
+//#include "Joueur.hpp"
+//#include "Plateau.hpp"
+
+class Plateau;
+class Joueur;
+class Pion;  // Ajout d'une déclaration anticipée
+
 
 class Case
 {
 protected:
-    string nom;
+    std::string nom;
 
 public:
     Case(); // constructeur
-    Case(string nom);
+    Case(std::string nom);
     void caseDepart(Joueur &joueur);
     void casePrison(Joueur &joueur, Pion pion);
     void caseTaxe(Joueur &joueur, Plateau &plateau);
     void caseImpots(Joueur &joueur, Plateau &plateau);
     void caseParcGratuit(Joueur &joueur, Plateau &plateau);
+    
 };

@@ -4,12 +4,16 @@
 #include <vector>
 #include <string>
 #include "Propriete.hpp"
-#include "Plateau.hpp"
+//#include "Plateau.hpp"
 #include "Des.hpp"
 #include "Pion.hpp"
-#include "Jeu.hpp"
+//#include "Jeu.hpp"
+
+class Plateau;
+class Jeu;
 
 using namespace std;
+
 
 class Joueur
 {
@@ -20,7 +24,8 @@ private:
     bool carteChancePrison;
     vector<Propriete *> proprietes;
     Pion pion;
-    Jeu jeu;
+    //Jeu jeu;
+    Jeu* jeu; 
 
 public:
     Joueur();
@@ -37,7 +42,7 @@ public:
     void recevoir_argent(uint16_t montant);
     void payer_joueur(uint16_t montant, Joueur joueur_a_payer);
     void payer_banque(uint16_t montant);
-    void payer_impots(uint16_t montant, Plateau &plateau);
+    void payer_impots(uint16_t montant, class  Plateau &plateau);
     void aller_prison();
     void sortir_prison();
     void Faillite();
@@ -48,4 +53,7 @@ public:
     void ajouterHotel(Propriete &propriete);
     void aller_a_une_case(uint8_t val_des);
     void aller_a_une_case_absolue(uint8_t val_case);
+
+    void afficherArgent() const;  // Nouvelle fonction pour afficher l'argent du joueur
+    
 };

@@ -1,5 +1,9 @@
 #include "../headers/Des.hpp"
 #include <iostream>
+#include <cstdlib>
+#include <ctime>
+#include <thread>
+#include <chrono>
 
 using namespace std;
 
@@ -12,6 +16,11 @@ using namespace std;
 Des::Des() {
     valDe1 = 0;
     valDe2 = 0;
+    static bool randomInit = false;
+    if (!randomInit) {
+        srand(static_cast<unsigned int>(time(nullptr)));  // Initialisation unique
+        randomInit = true;
+    }
 }
 
 /**
@@ -21,10 +30,14 @@ Des::Des() {
  */
 
 void Des::lancerDes() {
-    valDe1 = 1 + rand() % 6;
-    valDe2 = 1 + rand() % 6;
-    cout<< "Valeur du premier dé : " << valDe1 << endl;
-    cout<< "Valeur du deuxième dé : " << valDe2 << endl;
+  
+
+    valDe1 = rand() % 6 + 1;  // Générer un nombre entre 1 et 6 pour le premier dé
+        std::this_thread::sleep_for(std::chrono::milliseconds(50)); // Petite pause
+        valDe2 = rand() % 6 + 1;  // Générer un nombre entre 1 et 6 pour le deuxième dé
+
+    cout << "Valeur du premier dé : " << valDe1 << endl << flush;
+    cout << "Valeur du deuxième dé : " << valDe2 << endl << flush;
 }
 
 /**

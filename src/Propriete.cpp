@@ -1,4 +1,6 @@
 #include "../headers/Propriete.hpp"
+#include "../headers/Case.hpp"
+#include "../headers/Joueur.hpp"
 
 /**
  * @brief Constructeur de la classe Propriete.
@@ -47,7 +49,7 @@ uint16_t Propriete::getprix()
 
 void Propriete::setProprietaire(Joueur &joueur)
 {
-    proprietaire = joueur;
+    proprietaire = &joueur;
     possedeParJoueur = true;
 }
 
@@ -59,7 +61,7 @@ void Propriete::setProprietaire(Joueur &joueur)
  * @return Joueur Le propriétaire de la propriété.
  */
 
-Joueur Propriete::getPropritaire()
+Joueur* Propriete::getProprietaire()
 {
     return proprietaire;
 }

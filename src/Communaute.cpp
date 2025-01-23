@@ -13,7 +13,10 @@ using namespace std;
  * Initialise toutes les cartes Communauté avec leurs effets.
  */
 
-Communaute::Communaute()
+Communaute::Communaute() {
+    // Implémentation du constructeur (peut être vide si non nécessaire)
+}
+Communaute::Communaute(std::string nom)
 {
     this->cartesCommunaute = {
         "Placez-vous sur la case départ",
@@ -159,3 +162,4 @@ void Communaute::appliquerEffet(Joueur &joueur, uint8_t nbJoueurs, vector<Joueur
             break;
         }
     }
+}

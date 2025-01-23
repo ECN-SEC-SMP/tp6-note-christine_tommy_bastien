@@ -1,3 +1,8 @@
+cmake_minimum_required(VERSION 3.10)
+
+set(CMAKE_CXX_STANDARD 14)
+set(CMAKE_CXX_STANDARD_REQUIRED True)
+
 # Ajouter les fichiers source et d'en-tête
 set(SOURCES
     ../src/main.cpp
@@ -34,3 +39,4 @@ set(HEADERS
 
 # Créer l'exécutable
 add_executable(main ${SOURCES} ${HEADERS})
+

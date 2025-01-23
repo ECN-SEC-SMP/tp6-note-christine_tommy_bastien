@@ -1,4 +1,7 @@
 #include "../headers/Plateau.hpp"
+#include <memory>
+
+using namespace std;
 
 /**
  * @brief Constructeur de la classe Plateau.
@@ -15,7 +18,8 @@ Plateau::Plateau()
     this->vecteur_plateau.push_back(make_unique<Communaute>("Caisse de communauté"));
     this->vecteur_plateau.push_back(make_unique<Terrain>("Rue Lecourbe", 60, "violet", vector<uint16_t>{4, 20, 60, 180, 320, 450}));
     this->vecteur_plateau.push_back(make_unique<Case>("Impôts sur le revenu"));
-    this->vecteur_plateau.push_back(make_unique<Gare>("Gare Montparnasse", 200));
+    //this->vecteur_plateau.push_back(make_unique<Gare>("Gare Montparnasse", 200));
+    this->vecteur_plateau.push_back(std::make_unique<Gare>("Gare Montparnasse", 200, std::vector<uint16_t>{25, 50, 100, 200}));
     this->vecteur_plateau.push_back(make_unique<Terrain>("Rue de Vaugirard", 100, "bleu clair", vector<uint16_t>{6, 30, 90, 270, 400, 550}));
     this->vecteur_plateau.push_back(make_unique<Chance>("Chance"));
     this->vecteur_plateau.push_back(make_unique<Terrain>("Rue de Courcelles", 100, "bleu clair", vector<uint16_t>{6, 30, 90, 270, 400, 550}));
@@ -25,7 +29,8 @@ Plateau::Plateau()
     this->vecteur_plateau.push_back(make_unique<ServicePublic>("Compagnie de distribution d'électricité", 150, vector<uint16_t>{4, 10}));
     this->vecteur_plateau.push_back(make_unique<Terrain>("Avenue de Neuilly", 140, "rose", vector<uint16_t>{10, 50, 150, 450, 625, 750}));
     this->vecteur_plateau.push_back(make_unique<Terrain>("Rue de Paradis", 160, "rose", vector<uint16_t>{12, 60, 180, 500, 700, 900}));
-    this->vecteur_plateau.push_back(make_unique<Gare>("Gare de Lyon", 200));
+   // this->vecteur_plateau.push_back(make_unique<Gare>("Gare de Lyon", 200));
+    this->vecteur_plateau.push_back(std::make_unique<Gare>("Gare de Lyon", 200, std::vector<uint16_t>{25, 50, 100, 200}));
     this->vecteur_plateau.push_back(make_unique<Terrain>("Avenue Mozart", 180, "orange", vector<uint16_t>{14, 70, 200, 550, 750, 950}));
     this->vecteur_plateau.push_back(make_unique<Communaute>("Caisse de communauté"));
     this->vecteur_plateau.push_back(make_unique<Terrain>("Boulevard Saint-Michel", 180, "orange", vector<uint16_t>{14, 70, 200, 550, 750, 950}));
@@ -35,7 +40,8 @@ Plateau::Plateau()
     this->vecteur_plateau.push_back(make_unique<Chance>("Chance"));
     this->vecteur_plateau.push_back(make_unique<Terrain>("Boulevard Malesherbes", 220, "rouge", vector<uint16_t>{18, 90, 250, 700, 875, 1050}));
     this->vecteur_plateau.push_back(make_unique<Terrain>("Avenue Henri-Martin", 240, "rouge", vector<uint16_t>{20, 100, 300, 750, 925, 1100}));
-    this->vecteur_plateau.push_back(make_unique<Gare>("Gare du Nord", 200));
+    //this->vecteur_plateau.push_back(make_unique<Gare>("Gare du Nord", 200));
+    this->vecteur_plateau.push_back(std::make_unique<Gare>("Gare du Nord", 200, std::vector<uint16_t>{25, 50, 100, 200}));
     this->vecteur_plateau.push_back(make_unique<Terrain>("Faubourg Saint-Honoré", 260, "jaune", vector<uint16_t>{22, 110, 330, 800, 975, 1150}));
     this->vecteur_plateau.push_back(make_unique<Terrain>("Place de la Bourse", 260, "jaune", vector<uint16_t>{22, 110, 330, 800, 975, 1150}));
     this->vecteur_plateau.push_back(make_unique<ServicePublic>("Compagnie de distribution des eaux", 150, vector<uint16_t>{4, 10}));
@@ -45,7 +51,8 @@ Plateau::Plateau()
     this->vecteur_plateau.push_back(make_unique<Terrain>("Avenue Foch", 300, "vert", vector<uint16_t>{26, 130, 390, 900, 1100, 1275}));
     this->vecteur_plateau.push_back(make_unique<Communaute>("Caisse de communauté"));
     this->vecteur_plateau.push_back(make_unique<Terrain>("Boulevard des Capucines", 320, "vert", vector<uint16_t>{28, 150, 450, 1000, 1200, 1400}));
-    this->vecteur_plateau.push_back(make_unique<Gare>("Gare Saint-Lazare", 200));
+    //this->vecteur_plateau.push_back(make_unique<Gare>("Gare Saint-Lazare", 200));
+    this->vecteur_plateau.push_back(std::make_unique<Gare>("Gare Saint-Lazare", 200, std::vector<uint16_t>{25, 50, 100, 200}));
     this->vecteur_plateau.push_back(make_unique<Chance>("Chance"));
     this->vecteur_plateau.push_back(make_unique<Terrain>("Avenue des Champs-Élysées", 350, "bleu", vector<uint16_t>{35, 175, 500, 1100, 1300, 1500}));
     this->vecteur_plateau.push_back(make_unique<Case>("Taxe de luxe"));
@@ -65,7 +72,7 @@ Plateau::Plateau()
 
 uint8_t Plateau::getNombreJoueur()
 {
-   
+
 }
 
 /**
@@ -80,7 +87,29 @@ uint8_t Plateau::getNombreJoueur()
 
 void Plateau::executerAction(uint8_t numCase, Joueur &joueur)
 {
-    
+    // if (numCase < vecteur_plateau.size())
+    // {
+    //     auto &caseActuelle = vecteur_plateau[numCase];
+
+    //     if (auto chance = dynamic_cast<Chance *>(caseActuelle.get()))
+    //     {
+    //         cout << joueur.getNom() << " est sur une case Chance !" << endl;
+    //         chance->appliquerEffet(joueur);
+    //     }
+    //     else if (auto communaute = dynamic_cast<Communaute *>(caseActuelle.get()))
+    //     {
+    //         cout << joueur.getNom() << " est sur une case Caisse de Communauté !" << endl;
+    //         communaute->appliquerEffet(joueur);
+    //     }
+    //     else
+    //     {
+    //         cout << "Aucune action spéciale pour cette case." << endl;
+    //     }
+    // }
+    // else
+    // {
+    //     cout << "Position invalide." << endl;
+    // }
 }
 
 /**
@@ -110,3 +139,48 @@ uint16_t Plateau::getImpots()
 {
     return impots;
 }
+
+// void Plateau::afficherDetailsCase(uint8_t position) const
+// {
+//     if (position < vecteur_plateau.size())
+//     {
+//         cout << "Vous êtes sur la case : " << vecteur_plateau[position]->getNom() << endl;
+
+//         // Vérifie si la case est un Terrain
+//         if (auto terrain = dynamic_cast<Terrain*>(vecteur_plateau[position].get()))
+//         {
+//             cout << "Type : Terrain" << endl;
+//             cout << "Prix : " << terrain->getPrix() << " mono" << endl;
+//         }
+//         // Vérifie si la case est une Gare
+//         else if (auto gare = dynamic_cast<Gare*>(vecteur_plateau[position].get()))
+//         {
+//             cout << "Type : Gare" << endl;
+//             cout << "Prix : " << gare->getPrix() << " mono" << endl;
+//         }
+//         // Vérifie si la case est un Service Public
+//         else if (auto service = dynamic_cast<ServicePublic*>(vecteur_plateau[position].get()))
+//         {
+//             cout << "Type : Service Public" << endl;
+//             cout << "Prix : " << service->getPrix() << " mono" << endl;
+//         }
+//         // Vérifie si la case est une carte Chance
+//         else if (auto chance = dynamic_cast<Chance*>(vecteur_plateau[position].get()))
+//         {
+//             cout << "Type : Carte Chance" << endl;
+//         }
+//         // Vérifie si la case est une carte Communauté
+//         else if (auto commu = dynamic_cast<Communaute*>(vecteur_plateau[position].get()))
+//         {
+//             cout << "Type : Carte Caisse de Communauté" << endl;
+//         }
+//         else
+//         {
+//             cout << "Type : Case spéciale" << endl;
+//         }
+//     }
+//     else
+//     {
+//         cout << "Case invalide." << endl;
+//     }
+// }

@@ -9,7 +9,8 @@ private:
     vector<string> cartesCommunaute;
 
 public:
-    Communaute();
+    Communaute() ; 
+    Communaute(std::string nom);
     void appliquerEffet(Joueur &joueur, uint8_t nbJoueurs, vector<Joueur> joueurs);
     void afficherNomCarte();
 };

@@ -4,6 +4,7 @@
 #include "../headers/Pion.hpp"
 #include "../headers/Carte.hpp"
 #include "../headers/Communaute.hpp"
+#include "../headers/Jeu.hpp"
 
 using namespace std;
 
@@ -61,6 +62,7 @@ uint8_t Joueur::getPosition()
 bool Joueur::lancerDes(Des &des)
 {
     des.lancerDes();
+    cout << "Total des dés : " << static_cast<int>(des.getValue()) << endl;
     bool checkDouble = des.checkDouble();
 
     return checkDouble;
@@ -73,16 +75,18 @@ bool Joueur::lancerDes(Des &des)
  */
 void Joueur::avancer(uint8_t nombre)
 {
-    this->pion.setPosition(pion.getPosition() + nombre);
-    if (pion.getPosition() >= 40)
+    uint8_t nouvellePosition = pion.getPosition() + nombre;
+    if (nouvellePosition >= 40)
     {
-        this->pion.setPosition(pion.getPosition() - 40);
+        nouvellePosition -= 40;  // Revenir au début du plateau
         cout << nom << " passe par la case Départ et reçoit 200 mono." << endl;
-        this->recevoir_argent(200);
+        recevoir_argent(200);
     }
-    cout << nom << " avance de " << static_cast<int>(nombre) << " cases et se trouve sur la case " << static_cast<int>(pion.getPosition()) << "." << endl;
-}
 
+    pion.setPosition(nouvellePosition);
+    cout << nom << " avance de " << static_cast<int>(nombre) << " cases et se trouve sur la case " 
+         << static_cast<int>(nouvellePosition) << "." << endl;
+}
 
 /**
  * @brief Achète une propriété si le joueur a suffisamment d'argent.
@@ -141,7 +145,8 @@ void Joueur::tirer_carte_communaute()
     Communaute carteCommunaute;
     carteCommunaute.tirerCarte();
     carteCommunaute.afficherNomCarte();
-    carteCommunaute.appliquerEffet(*this, jeu.getNbJoueur(), jeu.getVecteurJoueurs());
+    carteCommunaute.appliquerEffet(*this, jeu->getNbJoueur(), jeu->getVecteurJoueurs());
+
 }
 
 /**
@@ -403,3 +408,9 @@ void Joueur::aller_a_une_case_absolue(uint8_t val_case)
 {
     pion.setPosition(val_case);
 }
+
+void Joueur::afficherArgent() const
+{
+    std::cout << nom << " possède actuellement " << argent_total << " mono." << std::endl;
+}
+

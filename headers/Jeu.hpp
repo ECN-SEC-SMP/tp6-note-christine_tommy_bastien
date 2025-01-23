@@ -18,12 +18,19 @@ private:
     vector<Joueur> joueurs;
 
     void askNombreJoueurs();
-    void demarrerTour();
-    void finDePartie();
+    // void demarrerTour();
+    // void finDePartie();
 
 public:
     Jeu();
     void demarrerPartie();
     uint8_t getNbJoueur();
     vector<Joueur> getVecteurJoueurs();
+    void demarrerTour();
+    void finDePartie();
+    // Ajout d'un getter pour accéder au plateau
+     void jouerPartie();  // Nouvelle fonction pour gérer la partie
+    Plateau& getPlateau() {
+        return plateau;
+    }
 };

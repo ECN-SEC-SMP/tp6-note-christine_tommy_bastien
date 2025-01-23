@@ -1,15 +1,19 @@
 #pragma once
 
-#include "Joueur.hpp"
+//#include "Joueur.hpp"
 #include "Case.hpp"
 
 using namespace std;
+
+
+class Joueur;  // Déclaration anticipée
 
 class Propriete : public Case
 {
 protected:
     uint16_t prix;
-    Joueur proprietaire;
+    //Joueur proprietaire;
+    Joueur* proprietaire;
     string nom;
     bool hotel;
     uint8_t nbMaisons;
@@ -22,7 +26,7 @@ public:
     void setPrix(uint16_t prix);
     uint16_t getprix();
     void setProprietaire(Joueur &joueur);
-    Joueur getPropritaire();
+    Joueur* getProprietaire();
     string getNom();
 
     bool estHotel();  // Détermine si la propriété a un hôtel
@@ -31,6 +35,5 @@ public:
     uint16_t getPrixHotel(uint8_t position);
     void ajouterMaison();
     void ajouterHotel();
-    uint16_t getPrixMaison(uint8_t position);
     bool estAchetee();
 };

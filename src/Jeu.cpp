@@ -1,5 +1,5 @@
 #include "../headers/Jeu.hpp"
-
+#include <limits>
 /**
  * @brief Constructeur par défaut de la classe Jeu.
  *
@@ -43,7 +43,7 @@ void Jeu::demarrerPartie()
 
 void Jeu::askNombreJoueurs()
 {
-    uint8_t value;
+    int value;
 
     cout << "Combien y a t-il de joueurs ?" << endl;
     cin >> value;
@@ -128,3 +128,77 @@ vector<Joueur> Jeu::getVecteurJoueurs()
 {
     return joueurs;
 }
+
+void Jeu::jouerPartie()
+{
+    bool partieEnCours = true;
+    while (partieEnCours)
+    {
+        for (Joueur& joueur : joueurs)
+        {
+            cout << "\nC'est au tour de " << joueur.getNom() << "." << endl;
+            cout << "Appuyez sur Entrée pour lancer les dés..." << endl;
+            cin.ignore(numeric_limits<streamsize>::max(), '\n');
+            cin.get();
+
+            // Lancer les dés
+            bool resDouble = joueur.lancerDes(this->des);
+            int valeurDes = des.getValue();
+            cout << joueur.getNom() << " a obtenu " << valeurDes << " et avance." << endl;
+
+            joueur.avancer(valeurDes);
+            int position = joueur.getPosition();
+            cout << joueur.getNom() << " est maintenant sur la case " << position << "." << endl;
+
+            // Exécution de l'action de la case
+            plateau.executerAction(position, joueur);
+
+            // Boucle pour les choix du joueur
+            bool tourTermine = false;
+            while (!tourTermine)
+            {
+                cout << "\nOptions disponibles :" << endl;
+                cout << "1. Acheter la propriété" << endl;
+                cout << "2. Afficher mes propriétés" << endl;
+                cout << "3. Voir mon argent" << endl;
+                cout << "4. Passer le tour" << endl;
+                cout << "5. Quitter la partie" << endl;
+
+                int choix;
+                cout << "Votre choix : ";
+                cin >> choix;
+
+                switch (choix)
+                {
+                case 1:
+                    cout << joueur.getNom() << " souhaite acheter la propriété." << endl;
+                    joueur.acheterPropriete(joueur, nullptr);  // À remplacer par une logique réelle
+                    break;
+                case 2:
+                    joueur.afficherProprietes();
+                    break;
+                case 3:
+                    joueur.afficherArgent();
+                    break;
+                case 4:
+                    cout << joueur.getNom() << " passe son tour." << endl;
+                    tourTermine = true;
+                    break;
+                case 5:
+                    cout << joueur.getNom() << " a décidé de quitter la partie." << endl;
+                    partieEnCours = false;
+                    tourTermine = true;
+                    break;
+                default:
+                    cout << "Option invalide. Veuillez choisir à nouveau." << endl;
+                }
+            }
+
+            if (!partieEnCours)
+                break;
+        }
+    }
+
+    cout << "Fin de la partie." << endl;
+}
+
