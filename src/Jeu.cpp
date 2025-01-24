@@ -23,7 +23,7 @@ void Jeu::demarrerPartie()
 
     askNombreJoueurs();
 
-    for (unsigned int i = 0; i < nombreJoueurs; i++)
+    for (uint8_t i = 0; i < nombreJoueurs; i++)
     {
         Joueur joueur;
         joueur.setNom();

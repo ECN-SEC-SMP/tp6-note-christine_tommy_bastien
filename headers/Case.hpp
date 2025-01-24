@@ -9,7 +9,6 @@ class Plateau;
 class Joueur;
 class Pion;  // Ajout d'une déclaration anticipée
 
-
 class Case
 {
 protected:
