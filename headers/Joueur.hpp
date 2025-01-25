@@ -24,7 +24,6 @@ private:
     bool carteChancePrison;
     vector<Propriete *> proprietes;
     Pion pion;
-    //Jeu jeu;
     Jeu* jeu; 
 
 public:

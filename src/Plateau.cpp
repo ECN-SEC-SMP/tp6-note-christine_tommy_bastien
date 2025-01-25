@@ -5,9 +5,9 @@ using namespace std;
 
 /**
  * @brief Constructeur de la classe Plateau.
- * 
+ *
  * Ce constructeur initialise le plateau de jeu en ajoutant différentes cases, telles que des terrains, des gares,
- * des cases spéciales comme "Chance" ou "Prison", ainsi que des services publics et des communautés. 
+ * des cases spéciales comme "Chance" ou "Prison", ainsi que des services publics et des communautés.
  * Chaque case est ajoutée au vecteur `vecteur_plateau` sous forme d'objets uniques de type dérivé (par exemple, `Terrain`, `Gare`, `Case`).
  */
 
@@ -59,10 +59,10 @@ Plateau::Plateau()
 
 /**
  * @brief Retourne le nombre de joueurs dans le jeu.
- * 
- * Cette fonction retourne le nombre de joueurs actuels dans la partie. 
+ *
+ * Cette fonction retourne le nombre de joueurs actuels dans la partie.
  * Cependant, la fonction n'est pas encore implémentée.
- * 
+ *
  * @return uint8_t Le nombre de joueurs (non implémenté ici).
  */
 
@@ -73,42 +73,106 @@ uint8_t Plateau::getNombreJoueur()
 
 /**
  * @brief Exécute l'action liée à une case du plateau.
- * 
- * Cette fonction détermine l'action à effectuer lorsqu'un joueur atterrit sur une case du plateau. 
+ *
+ * Cette fonction détermine l'action à effectuer lorsqu'un joueur atterrit sur une case du plateau.
  * L'action dépend du type de la case (terrain, gare, chance, etc.) et est exécutée pour le joueur spécifié.
- * 
+ *
  * @param numCase L'index de la case sur laquelle le joueur se trouve.
  * @param joueur Une référence au joueur qui doit exécuter l'action.
  */
 
-void Plateau::executerAction(uint8_t numCase, Joueur &joueur)
+Propriete *Plateau::executerAction(uint8_t numCase, Joueur &joueur)
 {
-    if (numCase < vecteur_plateau.size()) {
+    if (numCase < vecteur_plateau.size())
+    {
         auto &caseActuelle = vecteur_plateau[numCase];
 
-        if (auto terrain = dynamic_cast<Terrain *>(caseActuelle.get())) {
-            cout << joueur.getNom() << " est sur un terrain !" << endl;
+        if (auto terrain = dynamic_cast<Terrain *>(caseActuelle.get()))
+        {
+            cout << joueur.getNom() << " est sur la case " << terrain->getNom() << endl
+                 << endl;
             terrain->afficherDetails();
-            //terrain->appliquerEffet(joueur);
-        } else if (auto gare = dynamic_cast<Gare *>(caseActuelle.get())) {
-            cout << joueur.getNom() << " est sur une gare !" << endl;
-            gare->afficherDetails();
-            //gare->appliquerEffet(joueur);
-        } else if (auto service = dynamic_cast<ServicePublic *>(caseActuelle.get())) {
-            cout << joueur.getNom() << " est sur un service public !" << endl;
-            service->afficherDetails();
-            //service->appliquerEffet(joueur);
-        } else if (auto chance = dynamic_cast<Chance *>(caseActuelle.get())) {
-            cout << joueur.getNom() << " est sur une case Chance !" << endl;
-            chance->appliquerEffet(joueur);
-        } else if (auto communaute = dynamic_cast<Communaute *>(caseActuelle.get())) {
-            cout << joueur.getNom() << " est sur une case Caisse de Communauté !" << endl;
-            communaute->appliquerEffet(joueur, nombreJoueurs, joueurs);
-        } else {
-            cout << "Aucune action spéciale pour cette case." << endl;
+            return terrain;
+            // terrain->appliquerEffet(joueur);
         }
-    } else {
+        else if (auto gare = dynamic_cast<Gare *>(caseActuelle.get()))
+        {
+            cout << joueur.getNom() << " est sur la case \"gare " << gare->getNom() << endl
+                 << endl;
+            gare->afficherDetails();
+            return gare;
+            // gare->appliquerEffet(joueur);
+        }
+        else if (auto service = dynamic_cast<ServicePublic *>(caseActuelle.get()))
+        {
+            cout << joueur.getNom() << " est sur la case service public " << service->getNom() << endl
+                 << endl;
+            service->afficherDetails();
+            return service;
+            // service->appliquerEffet(joueur);
+        }
+        else if (auto chance = dynamic_cast<Chance *>(caseActuelle.get()))
+        {
+            cout << joueur.getNom() << " est sur une case Chance !" << endl
+                 << endl;
+            chance->appliquerEffet(joueur);
+            return nullptr;
+        }
+        else if (auto communaute = dynamic_cast<Communaute *>(caseActuelle.get()))
+        {
+            cout << joueur.getNom() << " est sur une case Caisse de Communauté !" << endl
+                 << endl;
+            communaute->appliquerEffet(joueur, nombreJoueurs, joueurs);
+            return nullptr;
+        }
+        else if (auto _case = dynamic_cast<Case *>(caseActuelle.get()))
+        {
+            if (numCase == 0)
+            {
+                cout << joueur.getNom() << " est sur la case Départ !" << endl;
+                _case->caseDepart(joueur);
+            }
+            else if (numCase == 4)
+            {
+                cout << joueur.getNom() << " est sur la case Impôts sur le revenu !" << endl;
+                _case->caseImpots(joueur, *this);
+            }
+            else if (numCase == 10)
+            {
+                cout << joueur.getNom() << " est sur la case Prison !" << endl;
+                _case->casePrison(joueur);
+            }
+            else if (numCase == 20)
+            {
+                cout << joueur.getNom() << " est sur la case Parc gratuit !" << endl;
+                _case->caseParcGratuit(joueur, *this);
+            }
+            else if (numCase == 30)
+            {
+                cout << joueur.getNom() << " est sur la case Allez en prison !" << endl;
+                joueur.aller_prison();
+            }
+            else if (numCase == 38)
+            {
+                cout << joueur.getNom() << " est sur la case Taxe de luxe !" << endl;
+                _case->caseTaxe(joueur, *this);
+            }
+            else
+            {
+                cout << "Aucune action spéciale pour cette case." << endl;
+            }
+            return nullptr;
+        }
+        else
+        {
+            cout << "Aucune action spéciale pour cette case." << endl;
+            return nullptr;
+        }
+    }
+    else
+    {
         cout << "Position invalide." << endl;
+        return nullptr;
     }
 
     // if (numCase < vecteur_plateau.size())
@@ -138,10 +202,10 @@ void Plateau::executerAction(uint8_t numCase, Joueur &joueur)
 
 /**
  * @brief Ajoute un montant aux impôts collectés.
- * 
- * Cette fonction permet d'ajouter un montant donné aux impôts collectés. Elle met également à jour l'affichage 
+ *
+ * Cette fonction permet d'ajouter un montant donné aux impôts collectés. Elle met également à jour l'affichage
  * pour indiquer le montant total des impôts collectés jusqu'à présent.
- * 
+ *
  * @param montant Le montant des impôts à ajouter.
  */
 
@@ -153,12 +217,12 @@ void Plateau::ajouterImpots(uint16_t montant)
 
 /**
  * @brief Retourne le montant total des impôts collectés.
- * 
+ *
  * Cette fonction permet de récupérer la somme totale des impôts collectés jusqu'à présent.
- * 
+ *
  * @return uint16_t Le montant des impôts collectés.
  */
- 
+
 uint16_t Plateau::getImpots()
 {
     return impots;

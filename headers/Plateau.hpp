@@ -23,7 +23,7 @@ private:
 public:
     Plateau(); // Constructeur
     uint8_t getNombreJoueur();
-    void executerAction(uint8_t numCase, Joueur &joueur);
+    Propriete* executerAction(uint8_t numCase, Joueur &joueur);
     void ajouterImpots(uint16_t montant);
     uint16_t getImpots();
     void afficherDetailsCase(uint8_t position) const;  // Nouvelle fonction

@@ -12,7 +12,6 @@ class Propriete : public Case
 {
 protected:
     uint16_t prix;
-    //Joueur proprietaire;
     Joueur* proprietaire;
     string nom;
     bool hotel;

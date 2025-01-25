@@ -10,7 +10,7 @@ using namespace std;
 
 /**
  * @brief Constructeur par défaut de la classe Joueur.
- * 
+ *
  * Initialise les attributs de l'objet Joueur, notamment l'argent de départ et les statuts.
  */
 Joueur::Joueur()
@@ -22,7 +22,7 @@ Joueur::Joueur()
 
 /**
  * @brief Obtient le nom du joueur.
- * 
+ *
  * @return string Le nom du joueur.
  */
 string Joueur::getNom()
@@ -43,7 +43,7 @@ void Joueur::setNom()
 
 /**
  * @brief Obtient la position actuelle du pion du joueur sur le plateau.
- * 
+ *
  * @return uint8_t La position actuelle du pion.
  */
 
@@ -54,7 +54,7 @@ uint8_t Joueur::getPosition()
 
 /**
  * @brief Lance les dés et retourne vrai si un double est obtenu.
- * 
+ *
  * @param des Référence à l'objet Des utilisé pour le lancer.
  * @return bool Indique si un double a été obtenu.
  */
@@ -63,6 +63,7 @@ bool Joueur::lancerDes(Des &des)
 {
     des.lancerDes();
     cout << "Total des dés : " << static_cast<int>(des.getValue()) << endl;
+    cout << endl;
     bool checkDouble = des.checkDouble();
 
     return checkDouble;
@@ -70,7 +71,7 @@ bool Joueur::lancerDes(Des &des)
 
 /**
  * @brief Fait avancer le pion du joueur d'un certain nombre de cases.
- * 
+ *
  * @param nombre Le nombre de cases à avancer.
  */
 void Joueur::avancer(uint8_t nombre)
@@ -78,25 +79,31 @@ void Joueur::avancer(uint8_t nombre)
     uint8_t nouvellePosition = pion.getPosition() + nombre;
     if (nouvellePosition >= 40)
     {
-        nouvellePosition -= 40;  // Revenir au début du plateau
+        nouvellePosition -= 40; // Revenir au début du plateau
         cout << nom << " passe par la case Départ et reçoit 200 mono." << endl;
         recevoir_argent(200);
     }
 
     pion.setPosition(nouvellePosition);
-    //cout << nom << " avance de " << static_cast<int>(nombre) << " cases et se trouve sur la case " 
-    //     << static_cast<int>(nouvellePosition) << "." << endl;
+    // cout << nom << " avance de " << static_cast<int>(nombre) << " cases et se trouve sur la case "
+    //      << static_cast<int>(nouvellePosition) << "." << endl;
 }
 
 /**
  * @brief Achète une propriété si le joueur a suffisamment d'argent.
- * 
+ *
  * @param joueur Le joueur acheteur.
  * @param propriete Pointeur vers la propriété à acheter.
  */
 
 void Joueur::acheterPropriete(Joueur joueur, Propriete *propriete)
 {
+    if (propriete->estAchetee())
+    {
+        cout << "La propriété a déjà été achetée par " << propriete->getProprietaire()->getNom() << endl;
+        return;
+    }
+
     if (argent_total >= propriete->getprix())
     {
         argent_total -= propriete->getprix();
@@ -110,14 +117,13 @@ void Joueur::acheterPropriete(Joueur joueur, Propriete *propriete)
     }
 }
 
-
 void Joueur::vendrePropriete(Propriete *)
 {
 }
 
 /**
  * @brief Retourne la liste des propriétés possédées par le joueur.
- * 
+ *
  * @return vector<Propriete *> Liste des propriétés possédées.
  */
 
@@ -146,12 +152,11 @@ void Joueur::tirer_carte_communaute()
     carteCommunaute.tirerCarte();
     carteCommunaute.afficherNomCarte();
     carteCommunaute.appliquerEffet(*this, jeu->getNbJoueur(), jeu->getVecteurJoueurs());
-
 }
 
 /**
  * @brief Le joueur reçoit une somme d'argent.
- * 
+ *
  * @param montant Le montant d'argent reçu.
  */
 void Joueur::recevoir_argent(uint16_t montant)
@@ -162,7 +167,7 @@ void Joueur::recevoir_argent(uint16_t montant)
 
 /**
  * @brief Le joueur paie un montant à un autre joueur.
- * 
+ *
  * @param montant Le montant à payer.
  * @param joueur_a_payer Le joueur à qui payer.
  */
@@ -182,7 +187,7 @@ void Joueur::payer_joueur(uint16_t montant, Joueur joueur_a_payer)
 
 /**
  * @brief Le joueur paie un montant à la banque.
- * 
+ *
  * @param montant Le montant à payer.
  */
 void Joueur::payer_banque(uint16_t montant)
@@ -197,7 +202,6 @@ void Joueur::payer_banque(uint16_t montant)
         cout << nom << " n'a pas assez d'argent pour payer la banque." << endl;
     }
 }
-
 
 void Joueur::payer_impots(uint16_t montant, Plateau &plateau)
 {
@@ -289,9 +293,9 @@ void Joueur::afficherProprietes()
 
 /**
  * @brief Retourne le nombre total d'hôtels possédés par le joueur.
- * 
+ *
  * Cette méthode parcourt toutes les propriétés du joueur et compte celles qui possèdent un hôtel.
- * 
+ *
  * @return uint8_t Le nombre d'hôtels détenus par le joueur.
  */
 uint8_t Joueur::getNombreHotels()
@@ -309,9 +313,9 @@ uint8_t Joueur::getNombreHotels()
 
 /**
  * @brief Retourne le nombre total de maisons possédées par le joueur.
- * 
+ *
  * Cette méthode parcourt toutes les propriétés du joueur et compte celles qui possèdent au moins une maison.
- * 
+ *
  * @return uint8_t Le nombre total de maisons.
  */
 uint8_t Joueur::getNombreMaisons()
@@ -329,10 +333,10 @@ uint8_t Joueur::getNombreMaisons()
 
 /**
  * @brief Ajoute une maison sur une propriété possédée par le joueur.
- * 
+ *
  * Cette méthode permet au joueur d'ajouter une maison sur une propriété s'il en est le propriétaire
  * et s'il possède suffisamment d'argent. Le coût de la maison est déterminé en fonction de la position de la propriété.
- * 
+ *
  * @param propriete Référence vers l'objet Propriete où la maison sera ajoutée.
  */
 void Joueur::ajouterMaison(Propriete &propriete)
@@ -359,12 +363,12 @@ void Joueur::ajouterMaison(Propriete &propriete)
 
 /**
  * @brief Ajoute un hôtel sur une propriété possédée par le joueur.
- * 
+ *
  * Cette méthode permet d'ajouter un hôtel sur une propriété si toutes les conditions sont remplies :
  * - Le joueur doit posséder la propriété.
  * - Le joueur doit avoir assez d'argent pour acheter un hôtel.
  * - La propriété doit déjà avoir le nombre requis de maisons avant d'ajouter un hôtel.
- * 
+ *
  * @param propriete Référence vers l'objet Propriete où l'hôtel sera ajouté.
  */
 void Joueur::ajouterHotel(Propriete &propriete)
@@ -392,7 +396,7 @@ void Joueur::ajouterHotel(Propriete &propriete)
 uint8_t Joueur::getNombreGares()
 {
     uint8_t compteur = 0;
-    for (Propriete* propriete : proprietes)
+    for (Propriete *propriete : proprietes)
     {
         // Vérifiez si la propriété est une gare
         if (propriete->getNom().find("Gare") != string::npos)
@@ -406,10 +410,10 @@ uint8_t Joueur::getNombreGares()
 uint8_t Joueur::getNombreServicesPublics()
 {
     uint8_t compteur = 0;
-    for (Propriete* propriete : proprietes)
+    for (Propriete *propriete : proprietes)
     {
         // Vérifiez si la propriété est une gare
-        if ((propriete->getNom().find("Compagnie de distribution"))!= string::npos)
+        if ((propriete->getNom().find("Compagnie de distribution")) != string::npos)
         {
             compteur++;
         }
@@ -419,7 +423,7 @@ uint8_t Joueur::getNombreServicesPublics()
 
 /**
  * @brief Déplace le joueur d'un nombre de cases relatif à sa position actuelle.
- * 
+ *
  * @param val_des Le nombre de cases à avancer.
  */
 void Joueur::aller_a_une_case(uint8_t val_des)
@@ -429,7 +433,7 @@ void Joueur::aller_a_une_case(uint8_t val_des)
 
 /**
  * @brief Déplace le joueur à une case spécifique.
- * 
+ *
  * @param val_case La case cible.
  */
 void Joueur::aller_a_une_case_absolue(uint8_t val_case)
@@ -441,4 +445,3 @@ void Joueur::afficherArgent() const
 {
     std::cout << nom << " possède actuellement " << argent_total << " mono." << std::endl;
 }
-

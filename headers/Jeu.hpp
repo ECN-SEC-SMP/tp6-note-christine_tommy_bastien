@@ -18,8 +18,6 @@ private:
     vector<Joueur> joueurs;
 
     void askNombreJoueurs();
-    // void demarrerTour();
-    // void finDePartie();
 
 public:
     Jeu();
@@ -29,8 +27,9 @@ public:
     void demarrerTour();
     void finDePartie();
     // Ajout d'un getter pour accéder au plateau
-     void jouerPartie();  // Nouvelle fonction pour gérer la partie
-    Plateau& getPlateau() {
+    void jouerPartie(); // Nouvelle fonction pour gérer la partie
+    Plateau &getPlateau()
+    {
         return plateau;
     }
 };
