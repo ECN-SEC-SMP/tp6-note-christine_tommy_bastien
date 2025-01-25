@@ -61,10 +61,11 @@ uint16_t Gare::calculerLoyer(Joueur &proprietaire) {
 void Gare::afficherDetails() {
     cout << "Nom : " << nom << endl;
     cout << "Prix : " << prix << " mono" << endl;
-    cout << "Loyers : " << endl;
-    for (uint16_t loyer : loyers) {
-        cout << loyer << " mono" << endl;
-    }
+    cout << "Loyers 1 gare: " << "25 mono"<< endl;
+    cout << "Loyers 2 gares : " << "50 mono" <<endl;
+    cout << "Loyers 3 gares : " << "100 mono" <<endl;
+    cout << "Loyers 4 gares : " << "200 mono" <<endl;
+
 }
 
 

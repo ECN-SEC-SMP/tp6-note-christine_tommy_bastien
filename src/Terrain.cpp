@@ -72,9 +72,10 @@ void Terrain::afficherDetails()
     cout << "Nom : " << nom << endl;
     cout << "Prix : " << prix << " mono" << endl;
     cout << "Couleur : " << couleur << endl;
-    cout << "Loyers : " << endl;
-    for (uint16_t loyer : loyers)
-    {
-        cout << loyer << " mono" << endl;
-    }
+    cout << "Loyers terrain nu : " << loyers[0]<< " mono" << endl;
+    cout << "Loyers avec 1 maison : " << loyers[1]<< " mono" << endl;
+    cout << "Loyers avec 2 maison : " << loyers[2]<< " mono" << endl;
+    cout << "Loyers avec 3 maison : " << loyers[3]<< " mono" << endl;
+    cout << "Loyers avec 4 maison : " << loyers[4]<< " mono" << endl;
+    cout << "Loyers avec hôtel : " << loyers[5]<< " mono" << endl;
 }

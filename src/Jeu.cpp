@@ -97,6 +97,7 @@ void Jeu::demarrerTour()
     demarrerTour();
 }
 
+
 /**
  * @brief Termine la partie de jeu.
  *

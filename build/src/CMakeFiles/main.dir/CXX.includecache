@@ -120,19 +120,9 @@ Propriete.hpp
 vector
 -
 
-/workspaces/tp6-note-christine_tommy_bastien/src/Joueur.cpp
-../headers/Joueur.hpp
-/workspaces/tp6-note-christine_tommy_bastien/headers/Joueur.hpp
-../headers/Propriete.hpp
-/workspaces/tp6-note-christine_tommy_bastien/headers/Propriete.hpp
-../headers/Plateau.hpp
-/workspaces/tp6-note-christine_tommy_bastien/headers/Plateau.hpp
-../headers/Pion.hpp
-/workspaces/tp6-note-christine_tommy_bastien/headers/Pion.hpp
-../headers/Carte.hpp
-/workspaces/tp6-note-christine_tommy_bastien/headers/Carte.hpp
-../headers/Communaute.hpp
-/workspaces/tp6-note-christine_tommy_bastien/headers/Communaute.hpp
+/workspaces/tp6-note-christine_tommy_bastien/src/Jeu.cpp
 ../headers/Jeu.hpp
 /workspaces/tp6-note-christine_tommy_bastien/headers/Jeu.hpp
+limits
+-
 
