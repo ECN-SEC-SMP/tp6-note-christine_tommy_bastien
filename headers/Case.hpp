@@ -16,11 +16,11 @@ protected:
 
 public:
     Case(); // constructeur
+    virtual ~Case() = default; // Add a virtual destructor
     Case(std::string nom);
     void caseDepart(Joueur &joueur);
     void casePrison(Joueur &joueur, Pion pion);
     void caseTaxe(Joueur &joueur, Plateau &plateau);
     void caseImpots(Joueur &joueur, Plateau &plateau);
     void caseParcGratuit(Joueur &joueur, Plateau &plateau);
-    
 };

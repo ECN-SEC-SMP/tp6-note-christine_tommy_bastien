@@ -46,7 +46,10 @@ src/CMakeFiles/main.dir/Des.cpp.o: ../headers/Des.hpp
 src/CMakeFiles/main.dir/Des.cpp.o: ../src/Des.cpp
 
 src/CMakeFiles/main.dir/Gare.cpp.o: ../headers/Case.hpp
+src/CMakeFiles/main.dir/Gare.cpp.o: ../headers/Des.hpp
 src/CMakeFiles/main.dir/Gare.cpp.o: ../headers/Gare.hpp
+src/CMakeFiles/main.dir/Gare.cpp.o: ../headers/Joueur.hpp
+src/CMakeFiles/main.dir/Gare.cpp.o: ../headers/Pion.hpp
 src/CMakeFiles/main.dir/Gare.cpp.o: ../headers/Propriete.hpp
 src/CMakeFiles/main.dir/Gare.cpp.o: ../src/Gare.cpp
 
@@ -106,6 +109,9 @@ src/CMakeFiles/main.dir/Propriete.cpp.o: ../headers/Propriete.hpp
 src/CMakeFiles/main.dir/Propriete.cpp.o: ../src/Propriete.cpp
 
 src/CMakeFiles/main.dir/ServicePublic.cpp.o: ../headers/Case.hpp
+src/CMakeFiles/main.dir/ServicePublic.cpp.o: ../headers/Des.hpp
+src/CMakeFiles/main.dir/ServicePublic.cpp.o: ../headers/Joueur.hpp
+src/CMakeFiles/main.dir/ServicePublic.cpp.o: ../headers/Pion.hpp
 src/CMakeFiles/main.dir/ServicePublic.cpp.o: ../headers/Propriete.hpp
 src/CMakeFiles/main.dir/ServicePublic.cpp.o: ../headers/ServicePublic.hpp
 src/CMakeFiles/main.dir/ServicePublic.cpp.o: ../src/ServicePublic.cpp

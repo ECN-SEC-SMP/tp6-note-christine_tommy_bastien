@@ -13,6 +13,7 @@ private:
 
 public:
     Gare();
-    Gare(string nom, uint16_t prix, vector<uint16_t> loyers);
-    void calculerLoyer();
+    Gare(const string& nom, int prix); 
+    uint16_t calculerLoyer(Joueur &proprietaire);
+    virtual void afficherDetails() override;
 };

@@ -32,9 +32,7 @@ Terrain::Terrain(string nom, uint16_t prix, string couleur, vector<uint16_t> loy
 /**
  * @brief Méthode pour ajouter une maison sur le terrain.
  *
- * Cette méthode est actuellement vide, mais elle pourrait être utilisée pour ajouter une maison sur le terrain.
- * La logique associée à l'ajout d'une maison, comme vérifier si le terrain permet d'ajouter une maison ou limiter le nombre,
- * pourrait être implémentée ici.
+ * Cette méthode ajoute une maison sur le terrain.
  */
 
 void Terrain::ajouterMaison()
@@ -44,10 +42,34 @@ void Terrain::ajouterMaison()
 /**
  * @brief Méthode pour calculer le loyer d'un terrain.
  *
- * Cette méthode est actuellement vide, mais elle pourrait être utilisée pour calculer le loyer d'un terrain en fonction de son développement,
+ * Cette méthode est utilisée pour calculer le loyer d'un terrain en fonction de son développement,
  * tel que le nombre de maisons ou d'hôtels sur le terrain.
  */
 
-void Terrain::calculerLoyer()
+// uint_16 Terrain::calculerLoyer(Jouer &proprietaire)
+// {
+//     if (!Propriete.get)
+//     {
+//         cout << "La propriété n'appartient à personne. Aucun loyer à payer." << endl;
+//         return 0;
+//     }
+
+// }
+
+/**
+ * @brief Méthode pour afficher les détails d'un terrain.
+ *
+ * Cette méthode affiche les détails d'un terrain, tels que le nom, le prix, la couleur et les loyers.
+ */
+
+void Terrain::afficherDetails()
 {
+    cout << "Nom : " << nom << endl;
+    cout << "Prix : " << prix << " mono" << endl;
+    cout << "Couleur : " << couleur << endl;
+    cout << "Loyers : " << endl;
+    for (uint16_t loyer : loyers)
+    {
+        cout << loyer << " mono" << endl;
+    }
 }

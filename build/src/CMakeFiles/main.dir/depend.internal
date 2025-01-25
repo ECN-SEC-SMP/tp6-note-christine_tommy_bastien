@@ -47,7 +47,10 @@ src/CMakeFiles/main.dir/Des.cpp.o
  /workspaces/tp6-note-christine_tommy_bastien/src/Des.cpp
 src/CMakeFiles/main.dir/Gare.cpp.o
  /workspaces/tp6-note-christine_tommy_bastien/headers/Case.hpp
+ /workspaces/tp6-note-christine_tommy_bastien/headers/Des.hpp
  /workspaces/tp6-note-christine_tommy_bastien/headers/Gare.hpp
+ /workspaces/tp6-note-christine_tommy_bastien/headers/Joueur.hpp
+ /workspaces/tp6-note-christine_tommy_bastien/headers/Pion.hpp
  /workspaces/tp6-note-christine_tommy_bastien/headers/Propriete.hpp
  /workspaces/tp6-note-christine_tommy_bastien/src/Gare.cpp
 src/CMakeFiles/main.dir/Jeu.cpp.o
@@ -107,6 +110,9 @@ src/CMakeFiles/main.dir/Propriete.cpp.o
  /workspaces/tp6-note-christine_tommy_bastien/src/Propriete.cpp
 src/CMakeFiles/main.dir/ServicePublic.cpp.o
  /workspaces/tp6-note-christine_tommy_bastien/headers/Case.hpp
+ /workspaces/tp6-note-christine_tommy_bastien/headers/Des.hpp
+ /workspaces/tp6-note-christine_tommy_bastien/headers/Joueur.hpp
+ /workspaces/tp6-note-christine_tommy_bastien/headers/Pion.hpp
  /workspaces/tp6-note-christine_tommy_bastien/headers/Propriete.hpp
  /workspaces/tp6-note-christine_tommy_bastien/headers/ServicePublic.hpp
  /workspaces/tp6-note-christine_tommy_bastien/src/ServicePublic.cpp

@@ -36,4 +36,5 @@ public:
     void ajouterMaison();
     void ajouterHotel();
     bool estAchetee();
+    virtual void afficherDetails() = 0;  // Fonction virtuelle pure
 };

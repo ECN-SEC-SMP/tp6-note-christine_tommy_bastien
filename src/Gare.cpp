@@ -1,4 +1,5 @@
 #include "../headers/Gare.hpp"
+#include "../headers/Joueur.hpp"
 
 /**
  * @brief Constructeur par défaut de la classe Gare.
@@ -19,18 +20,52 @@ Gare::Gare() {
  * @param loyers Un vecteur contenant les loyers associés à la gare.
  */
 
-Gare::Gare(string nom, uint16_t prix, vector<uint16_t> loyers) {
+Gare::Gare(const string& nom, int prix) {
     this->nom = nom;
     this->prix = prix;
-    this->loyers = loyers;
 }
 
 /**
  * @brief Calcule le loyer de la gare.
  * 
- * Cette fonction permet de calculer le loyer de la gare, mais elle est actuellement vide et nécessite une implémentation.
+ * Cette fonction permet de calculer le loyer de la gare.
  */
- 
-void Gare::calculerLoyer() {
+uint16_t Gare::calculerLoyer(Joueur &proprietaire) {
+    uint8_t nombreGares = proprietaire.getNombreGares();
 
+    switch (nombreGares) {
+        case 1:
+            return 25;
+            cout<<"Vous devez 25 monos à"<<proprietaire.getNom()<<"!"<<endl;
+        case 2:
+            return 50;
+            cout<<"Vous devez 50 monos à"<<proprietaire.getNom()<<"!"<<endl;
+        case 3:
+            return 100;
+            cout<<"Vous devez 100 monos à"<<proprietaire.getNom()<<"!"<<endl;
+        case 4:
+            return 200;
+            cout<<"Vous devez 200 monos à"<<proprietaire.getNom()<<"!"<<endl;
+        default:
+            return 0;
+            cout<<"La gare n'appartient à personne."<<endl;
+    }
 }
+
+/**
+ * @brief Affiche les détails de la gare.
+ * 
+ * Cette fonction affiche les détails de la gare, tels que le nom, le prix et les loyers.
+ */
+
+void Gare::afficherDetails() {
+    cout << "Nom : " << nom << endl;
+    cout << "Prix : " << prix << " mono" << endl;
+    cout << "Loyers : " << endl;
+    for (uint16_t loyer : loyers) {
+        cout << loyer << " mono" << endl;
+    }
+}
+
+
+

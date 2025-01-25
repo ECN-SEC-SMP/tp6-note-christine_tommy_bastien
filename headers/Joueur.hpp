@@ -53,7 +53,8 @@ public:
     void ajouterHotel(Propriete &propriete);
     void aller_a_une_case(uint8_t val_des);
     void aller_a_une_case_absolue(uint8_t val_case);
-
+    uint8_t getNombreGares();
+    uint8_t getNombreServicesPublics();
     void afficherArgent() const;  // Nouvelle fonction pour afficher l'argent du joueur
     
 };

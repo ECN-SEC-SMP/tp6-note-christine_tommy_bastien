@@ -84,8 +84,8 @@ void Joueur::avancer(uint8_t nombre)
     }
 
     pion.setPosition(nouvellePosition);
-    cout << nom << " avance de " << static_cast<int>(nombre) << " cases et se trouve sur la case " 
-         << static_cast<int>(nouvellePosition) << "." << endl;
+    //cout << nom << " avance de " << static_cast<int>(nombre) << " cases et se trouve sur la case " 
+    //     << static_cast<int>(nouvellePosition) << "." << endl;
 }
 
 /**
@@ -387,6 +387,34 @@ void Joueur::ajouterHotel(Propriete &propriete)
     {
         cout << "La propriété " << propriete.getNom() << " n'appartient pas à " << nom << "." << endl;
     }
+}
+
+uint8_t Joueur::getNombreGares()
+{
+    uint8_t compteur = 0;
+    for (Propriete* propriete : proprietes)
+    {
+        // Vérifiez si la propriété est une gare
+        if (propriete->getNom().find("Gare") != string::npos)
+        {
+            compteur++;
+        }
+    }
+    return compteur;
+}
+
+uint8_t Joueur::getNombreServicesPublics()
+{
+    uint8_t compteur = 0;
+    for (Propriete* propriete : proprietes)
+    {
+        // Vérifiez si la propriété est une gare
+        if ((propriete->getNom().find("Compagnie de distribution"))!= string::npos)
+        {
+            compteur++;
+        }
+    }
+    return compteur;
 }
 
 /**

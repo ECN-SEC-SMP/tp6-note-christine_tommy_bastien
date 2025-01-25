@@ -19,6 +19,7 @@ private:
     uint16_t impots;
     std::vector<Joueur> joueurs;
     uint8_t nombreJoueurs;
+    
 public:
     Plateau(); // Constructeur
     uint8_t getNombreJoueur();

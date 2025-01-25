@@ -35,8 +35,5 @@ void Pion::setPosition(uint8_t nouvelle_position)
 
 uint8_t Pion::getPosition()
 {
-    Des des;
-    des.lancerDes();
-    uint8_t nouvelle_position = position + des.getValue();
-    return nouvelle_position;
+    return position;
 }

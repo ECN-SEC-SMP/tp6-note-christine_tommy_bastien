@@ -17,5 +17,6 @@ public:
     Terrain();
     Terrain(string nom, uint16_t prix, string couleur, vector<uint16_t> loyers);
     void ajouterMaison();
-    void calculerLoyer();
+    //uint16_t calculerLoyer();
+    virtual void afficherDetails() override;
 };

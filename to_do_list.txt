@@ -1,0 +1,5 @@
+fonction à développer : 
+- calculerloyer de gare.cpp : ok
+- afficherDetailsCase(uint8_t position) de plateau.cpp : la fonction est en commentaire
+- calculerloyer de service public.cpp : ok
+- terrain.cpp :  ajouter maison et calculer loyer 
