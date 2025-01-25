@@ -35,8 +35,13 @@ Terrain::Terrain(string nom, uint16_t prix, string couleur, vector<uint16_t> loy
  * Cette méthode ajoute une maison sur le terrain.
  */
 
-void Terrain::ajouterMaison()
-{
+void Terrain::ajouterMaison() {
+    if (!hotel && nbMaisons < 4) {
+        nbMaisons++;
+    }
+    else if (nbMaisons == 4 && !hotel) {
+        hotel = true;
+    }
 }
 
 /**
@@ -46,15 +51,15 @@ void Terrain::ajouterMaison()
  * tel que le nombre de maisons ou d'hôtels sur le terrain.
  */
 
-// uint_16 Terrain::calculerLoyer(Jouer &proprietaire)
-// {
-//     if (!Propriete.get)
-//     {
-//         cout << "La propriété n'appartient à personne. Aucun loyer à payer." << endl;
-//         return 0;
-//     }
-
-// }
+uint16_t Terrain::calculerLoyer() {
+    if (hotel) {
+        return loyers[5];  // Loyer avec un hôtel (index 5)
+    } else if (nbMaisons > 0) {
+        return loyers[nbMaisons];  // Loyer selon le nombre de maisons
+    } else {
+        return loyers[0];  // Loyer sans maison
+    }
+}
 
 /**
  * @brief Méthode pour afficher les détails d'un terrain.
