@@ -31,6 +31,7 @@ public:
     void setNom();
     string getNom();
     uint8_t getPosition();
+    bool getPrison();
     bool lancerDes(Des &des);
     void avancer(uint8_t nombre);
     void acheterPropriete(Joueur joueur, Propriete *);

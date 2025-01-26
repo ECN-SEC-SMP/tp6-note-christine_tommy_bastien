@@ -134,124 +134,171 @@ void Jeu::jouerPartie()
 {
     int choix = 0;
     bool partieEnCours = true;
+    bool resDouble;
+    int compteur_tour = 0;
 
     while (partieEnCours)
     {
         for (Joueur &joueur : joueurs)
         {
             cout << "\nC'est au tour de " << joueur.getNom() << "." << endl;
-            cout << "Appuyez sur Entrée pour lancer les dés..." << endl;
-            cin.ignore(numeric_limits<streamsize>::max(), '\n');
-            cin.get();
 
-            // Lancer les dés
-            bool resDouble = joueur.lancerDes(this->des);
+            if (joueur.getPrison() != true){
+                cout << "Appuyez sur Entrée pour lancer les dés..." << endl;
+                cin.ignore(numeric_limits<streamsize>::max(), '\n');
+                cin.get();
 
-            if (resDouble)
-            {
-                cout << "Vous avez fait un double, vous pourrez rejouer à la fin de votre tour." << endl;
+                // Lancer les dés
+                resDouble = joueur.lancerDes(this->des);
+
+                if (resDouble)
+                {
+                    cout << "Vous avez fait un double, vous pourrez rejouer à la fin de votre tour." << endl;
+                }
+
+                int valeurDes = des.getValue();
+
+                joueur.avancer(valeurDes);
+                int position = joueur.getPosition();
+                cout << joueur.getNom() << " est maintenant sur la case " << position << "." << endl;
+
+                // Exécution de l'action de la case
+                Propriete *resPropriete = plateau.executerAction(position, joueur);
+
+                // Boucle pour les choix du joueur
+                bool tourTermine = false;
+                while (!tourTermine)
+                {
+                    if (resPropriete != nullptr && !resDouble)
+                    {
+                        cout << "\nOptions disponibles :" << endl;
+                        cout << "1. Acheter la propriété" << endl;
+                        cout << "2. Afficher mes propriétés" << endl;
+                        cout << "3. Voir mon argent" << endl;
+                        cout << "4. Passer le tour" << endl;
+                        cout << "5. Quitter la partie" << endl;
+                        cout << endl;
+
+                        cout << "Votre choix : ";
+                        cin >> choix;
+                    }
+                    else if (resPropriete != nullptr && resDouble)
+                    {
+                        cout << "\nOptions disponibles :" << endl;
+                        cout << "1. Acheter la propriété" << endl;
+                        cout << "2. Afficher mes propriétés" << endl;
+                        cout << "3. Voir mon argent" << endl;
+                        cout << "4. Passer le tour" << endl;
+                        cout << "5. Quitter la partie" << endl;
+                        cout << "6. Relancer les dés" << endl;
+                        cout << endl;
+
+                        cout << "Votre choix : ";
+                        cin >> choix;
+                    }
+                    else if (resPropriete ==nullptr && !resDouble)
+                    {
+                        cout << "\nOptions disponibles :" << endl;
+                        cout << "1. Afficher mes propriétés" << endl;
+                        cout << "2. Voir mon argent" << endl;
+                        cout << "3. Passer le tour" << endl;
+                        cout << "4. Quitter la partie" << endl;
+                        cout << endl;
+
+                        cout << "Votre choix : ";
+                        cin >> choix;
+                        choix += 1;
+                    }
+                    else
+                    {
+                        cout << "\nOptions disponibles :" << endl;
+                        cout << "1. Afficher mes propriétés" << endl;
+                        cout << "2. Voir mon argent" << endl;
+                        cout << "3. Passer le tour" << endl;
+                        cout << "4. Quitter la partie" << endl;
+                        cout << "5. Relancer les dés" <<endl;
+                        cout << endl;
+
+                        cout << "Votre choix : ";
+                        cin >> choix;
+                        choix += 1;
+                    }
+
+                    switch (choix)
+                    {
+                    case 1:
+                        cout << joueur.getNom() << " souhaite acheter la propriété." << endl;
+                        joueur.acheterPropriete(joueur, resPropriete);
+                        break;
+                    case 2:
+                        joueur.afficherProprietes();
+                        break;
+                    case 3:
+                        joueur.afficherArgent();
+                        break;
+                    case 4:
+                        cout << joueur.getNom() << " passe son tour." << endl;
+                        tourTermine = true;
+                        break;
+                    case 5:
+                        cout << joueur.getNom() << " a décidé de quitter la partie." << endl;
+                        partieEnCours = false;
+                        tourTermine = true;
+                        break;
+                    case 6 :
+                        jouerPartie();
+                        break;
+                    default:
+                        cout << choix << endl;
+                        cout << "Option invalide. Veuillez choisir à nouveau." << endl;
+                    }
+                }
+
+                if (!partieEnCours)
+                    break;
             }
+        
+            else {
+                    cout << "Vous êtes en prison, faites un double pour sortir de prison ou payez 50 monos." << endl ;
+                    cout << "Appuyez sur Entrée pour lancer les dés..." << endl;
+                    cin.ignore(numeric_limits<streamsize>::max(), '\n');
+                    cin.get();
 
-            int valeurDes = des.getValue();
-
-            joueur.avancer(valeurDes);
-            int position = joueur.getPosition();
-            cout << joueur.getNom() << " est maintenant sur la case " << position << "." << endl;
-
-            // Exécution de l'action de la case
-            Propriete *resPropriete = plateau.executerAction(position, joueur);
-
-            // Boucle pour les choix du joueur
-            bool tourTermine = false;
-            while (!tourTermine)
-            {
-                if (resPropriete != nullptr && !resDouble)
-                {
                     cout << "\nOptions disponibles :" << endl;
-                    cout << "1. Acheter la propriété" << endl;
-                    cout << "2. Afficher mes propriétés" << endl;
-                    cout << "3. Voir mon argent" << endl;
-                    cout << "4. Passer le tour" << endl;
-                    cout << "5. Quitter la partie" << endl;
-                    cout << endl;
+                    cout << "1. Lancer les dés" << endl;
+                    cout << "2. Payer 50 monos" << endl;
 
                     cout << "Votre choix : ";
                     cin >> choix;
-                }
-                else if (resPropriete != nullptr && resDouble)
-                {
-                    cout << "\nOptions disponibles :" << endl;
-                    cout << "1. Acheter la propriété" << endl;
-                    cout << "2. Afficher mes propriétés" << endl;
-                    cout << "3. Voir mon argent" << endl;
-                    cout << "4. Passer le tour" << endl;
-                    cout << "5. Quitter la partie" << endl;
-                    cout << "6. Relancer les dés" << endl;
-                    cout << endl;
 
-                    cout << "Votre choix : ";
-                    cin >> choix;
-                }
-                else if (resPropriete ==nullptr && !resDouble)
-                {
-                    cout << "\nOptions disponibles :" << endl;
-                    cout << "1. Afficher mes propriétés" << endl;
-                    cout << "2. Voir mon argent" << endl;
-                    cout << "3. Passer le tour" << endl;
-                    cout << "4. Quitter la partie" << endl;
-                    cout << endl;
-
-                    cout << "Votre choix : ";
-                    cin >> choix;
-                    choix += 1;
-                }
-                else
-                {
-                    cout << "\nOptions disponibles :" << endl;
-                    cout << "1. Afficher mes propriétés" << endl;
-                    cout << "2. Voir mon argent" << endl;
-                    cout << "3. Passer le tour" << endl;
-                    cout << "4. Quitter la partie" << endl;
-                    cout << "5. Relancer les dés" <<endl;
-                    cout << endl;
-
-                    cout << "Votre choix : ";
-                    cin >> choix;
-                    choix += 1;
-                }
-
-                switch (choix)
-                {
-                case 1:
-                    cout << joueur.getNom() << " souhaite acheter la propriété." << endl;
-                    joueur.acheterPropriete(joueur, resPropriete);
-                    break;
-                case 2:
-                    joueur.afficherProprietes();
-                    break;
-                case 3:
-                    joueur.afficherArgent();
-                    break;
-                case 4:
-                    cout << joueur.getNom() << " passe son tour." << endl;
-                    tourTermine = true;
-                    break;
-                case 5:
-                    cout << joueur.getNom() << " a décidé de quitter la partie." << endl;
-                    partieEnCours = false;
-                    tourTermine = true;
-                    break;
-                case 6 :
-                    jouerPartie();
-                    break;
-                default:
-                    cout << choix << endl;
-                    cout << "Option invalide. Veuillez choisir à nouveau." << endl;
-                }
-            }
+                    switch (choix){
+                        case 1 : 
+                            resDouble = joueur.lancerDes(this->des);
+                            if (resDouble==true){
+                                joueur.sortir_prison();
+                                cout << "Vous sortez de prison. Attendez le prochain tour pour joueur"<<endl;
+                            }
+                            else{
+                                if (compteur_tour=3){
+                                    cout << "Sortez de prison" << endl;
+                                    joueur.sortir_prison();
+                                }
+                                else {
+                                    cout << "Vous restez en prison. Attendez le prochain tour pour jouer"<<endl;
+                                    compteur_tour++;
+                                }
+                            }
+                            break;
+                        case 2 :
+                            cout << "Vous sortez de prison. Attendez le prochain tour pour joueur"<<endl;
+                            joueur.payer_banque(50);
+                            joueur.sortir_prison();
+                    }
 
             if (!partieEnCours)
-                break;
+              break;
+           }
+        
         }
     }
 

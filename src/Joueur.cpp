@@ -52,6 +52,11 @@ uint8_t Joueur::getPosition()
     return pion.getPosition();
 }
 
+
+bool Joueur::getPrison(){
+    return this->prison;
+}
+
 /**
  * @brief Lance les dés et retourne vrai si un double est obtenu.
  *
