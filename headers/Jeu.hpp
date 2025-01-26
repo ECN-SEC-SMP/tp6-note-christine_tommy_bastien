@@ -17,10 +17,10 @@ using namespace std;
 class Jeu
 {
 private:
-    uint8_t nombreJoueurs; ///< Nombre de joueurs dans la partie.
-    uint8_t tour; ///< Indice du joueur actuel.
-    Des des; ///< Dés utilisés pour le déplacement.
-    Plateau plateau; ///< Plateau de jeu contenant les cases.
+    uint8_t nombreJoueurs;  ///< Nombre de joueurs dans la partie.
+    uint8_t tour;           ///< Indice du joueur actuel.
+    Des des;                ///< Dés utilisés pour le déplacement.
+    Plateau plateau;        ///< Plateau de jeu contenant les cases.
     vector<Joueur> joueurs; ///< Liste des joueurs de la partie.
 
     /**
@@ -49,7 +49,7 @@ public:
      * @brief Retourne la liste des joueurs de la partie.
      * @return vector<Joueur> Liste des joueurs.
      */
-    vector<Joueur> getVecteurJoueurs();
+    const vector<Joueur> &getVecteurJoueurs() const;
 
     /**
      * @brief Démarre le tour du joueur actuel.

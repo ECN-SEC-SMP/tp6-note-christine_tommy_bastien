@@ -6,7 +6,7 @@
 /**
  * @class Communaute
  * @brief Gère les cartes de type Caisse de Communauté dans le jeu Monopoly.
- * 
+ *
  * Ces cartes ont divers effets, comme payer des frais ou recevoir de l'argent.
  */
 class Communaute : public Carte
@@ -32,8 +32,7 @@ public:
      * @param nbJoueurs Nombre total de joueurs dans la partie.
      * @param joueurs Vecteur contenant tous les joueurs de la partie.
      */
-    void appliquerEffet(Joueur &joueur, uint8_t nbJoueurs, vector<Joueur> joueurs);
-
+    void appliquerEffet(Joueur &joueur, uint8_t nbJoueurs, const vector<Joueur> &joueurs);
     /**
      * @brief Affiche le nom de la carte Caisse de Communauté tirée.
      */

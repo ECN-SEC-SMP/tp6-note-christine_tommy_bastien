@@ -16,11 +16,11 @@ using namespace std;
 Des::Des() {
     valDe1 = 0;
     valDe2 = 0;
-    static bool randomInit = false;
-    if (!randomInit) {
-        srand(static_cast<unsigned int>(time(nullptr)));  // Initialisation unique
-        randomInit = true;
-    }
+    // static bool randomInit = false;
+    // if (!randomInit) {
+    //     srand(static_cast<unsigned int>(time(nullptr)));  // Initialisation unique
+    //     randomInit = true;
+    // }
 }
 
 /**

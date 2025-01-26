@@ -9,11 +9,6 @@
  */
 Chance::Chance()
 {
-    // Implémentation du constructeur (peut être vide si non nécessaire)
-}
-
-Chance::Chance(std::string nom)
-{
     this->cartesChance = {
         "Rendez-vous à la Rue de la Paix",
         "Avancer jusqu’à la case départ",
@@ -32,6 +27,10 @@ Chance::Chance(std::string nom)
         "Amende pour ivresse 20 mono",
         "Votre immeuble et votre prêt rapportent. Vous devez toucher 150 mono"};
 }
+Chance::Chance(std::string nom)
+{
+    this->nom = nom;
+}
 
 /**
  * @brief Affiche le nom de la carte Chance tirée.
@@ -39,7 +38,7 @@ Chance::Chance(std::string nom)
 
 void Chance::afficherNomCarte()
 {
-    cout << "Carte tirée : " << this->cartesChance[this->nbRandom] << endl;
+    cout << "Carte tirée : " << this->cartesChance.at(nbRandom) << endl;
 }
 
 /**
@@ -52,7 +51,6 @@ void Chance::afficherNomCarte()
 
 void Chance::appliquerEffet(Joueur &joueur)
 {
-    cout << nbRandom << endl;
     switch (this->nbRandom)
     {
     case 0:
@@ -89,7 +87,7 @@ void Chance::appliquerEffet(Joueur &joueur)
         break;
     case 8:
         cout << joueur.getNom() << " a tiré une carte 'Libéré de prison'. Elle peut être conservée." << endl;
-         joueur.recevoir_carte_sortie_prison();
+        joueur.recevoir_carte_sortie_prison();
         break;
     case 9:
         joueur.avancer(-3);

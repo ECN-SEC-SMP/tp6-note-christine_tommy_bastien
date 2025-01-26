@@ -124,11 +124,10 @@ uint8_t Jeu::getNbJoueur()
  * @return vector<Joueur> Un vecteur contenant tous les joueurs de la partie.
  */
 
-vector<Joueur> Jeu::getVecteurJoueurs()
+const vector<Joueur> &Jeu::getVecteurJoueurs() const
 {
     return joueurs;
 }
-
 
 /**
  * @brief Fonction principale qui gère le déroulement de la partie.
@@ -147,7 +146,6 @@ void Jeu::jouerPartie()
         {
             cout << "\nC'est au tour de " << joueur.getNom() << "." << endl;
 
-
             cout << "Appuyez sur Entrée pour lancer les dés..." << endl;
             cin.ignore(numeric_limits<streamsize>::max(), '\n');
             cin.get();
@@ -159,11 +157,8 @@ void Jeu::jouerPartie()
             {
                 cout << "Vous avez fait un double, vous pourrez rejouer à la fin de votre tour." << endl;
             }
-            //joueur.recevoir_carte_sortie_prison();
-           
-            des.getValue();  //  int valeurDes = 10;
 
-            joueur.avancer( des.getValue());
+            joueur.avancer(des.getValue());
             int position = joueur.getPosition();
             cout << joueur.getNom() << " est maintenant sur la case " << position << "." << endl;
 

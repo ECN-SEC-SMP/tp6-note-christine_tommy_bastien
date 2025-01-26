@@ -5,6 +5,8 @@ using namespace std;
 
 int main()
 {
+    srand(time(NULL)); // Initialiser une seule fois
+
     Jeu jeu;
 
     // Démarrer la partie (initialisation des joueurs)

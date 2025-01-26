@@ -7,7 +7,7 @@
 /**
  * @class Chance
  * @brief Gère les cartes de type Chance dans le jeu Monopoly.
- * 
+ *
  * Les cartes Chance peuvent avoir des effets variés, tels que déplacer un joueur ou lui donner de l'argent.
  */
 class Chance : public Carte

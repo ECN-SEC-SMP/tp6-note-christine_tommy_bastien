@@ -9,14 +9,11 @@ using namespace std;
 
 /**
  * @brief Constructeur de la classe Communauté.
- * 
+ *
  * Initialise toutes les cartes Communauté avec leurs effets.
  */
 
-Communaute::Communaute() {
-    // Implémentation du constructeur (peut être vide si non nécessaire)
-}
-Communaute::Communaute(std::string nom)
+Communaute::Communaute()
 {
     this->cartesCommunaute = {
         "Placez-vous sur la case départ",
@@ -37,6 +34,11 @@ Communaute::Communaute(std::string nom)
         "Vous héritez 100 monos"};
 }
 
+Communaute::Communaute(std::string nom)
+{
+    this->nom = nom;
+}
+
 /**
  * @brief Affiche le nom de la carte Chance tirée.
  */
@@ -48,14 +50,15 @@ void Communaute::afficherNomCarte()
 
 /**
  * @brief Applique l'effet de la carte Chance tirée au joueur.
- * 
+ *
  * En fonction de la carte tirée, le joueur peut avancer, reculer, payer des taxes ou recevoir de l'argent.
- * 
+ *
  * @param joueur Référence vers le joueur affecté par la carte Chance.
  */
- 
-void Communaute::appliquerEffet(Joueur &joueur, uint8_t nbJoueurs, vector<Joueur> joueurs)
+
+void Communaute::appliquerEffet(Joueur &joueur, uint8_t nbJoueurs, const vector<Joueur> &joueurs)
 {
+    cout << nbRandom << endl;
     switch (this->nbRandom)
     {
     case 0:

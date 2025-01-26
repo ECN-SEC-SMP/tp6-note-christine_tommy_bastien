@@ -117,7 +117,6 @@ void Joueur::acheterPropriete(Joueur joueur, Propriete *propriete)
     }
 }
 
-
 /**
  * @brief Vend une propriété possédée par le joueur.
  *
@@ -157,9 +156,16 @@ void Joueur::tirer_carte_chance()
  */
 void Joueur::tirer_carte_communaute()
 {
+    if (!jeu)
+    {
+        cout << "Erreur: pointeur jeu null" << endl;
+        return;
+    }
+
     Communaute carteCommunaute;
     carteCommunaute.tirerCarte();
     carteCommunaute.afficherNomCarte();
+
     carteCommunaute.appliquerEffet(*this, jeu->getNbJoueur(), jeu->getVecteurJoueurs());
 }
 
@@ -199,11 +205,11 @@ void Joueur::payer_joueur(uint16_t montant, Joueur joueur_a_payer)
  *
  * @param montant Le montant à payer.
  */
-void Joueur::payer_banque(uint16_t montant)
+void Joueur::payer_banque(uint16_t montant) const
 {
     if (argent_total >= montant)
     {
-        argent_total -= montant;
+        const_cast<Joueur *>(this)->argent_total -= montant;
         cout << nom << " a payé " << montant << " mono à la banque." << endl;
     }
     else
@@ -215,8 +221,8 @@ void Joueur::payer_banque(uint16_t montant)
 /**
  * @brief Permet au joueur de payer ses impôts au plateau.
  *
- * Cette méthode réduit l'argent du joueur du montant des impôts et l'ajoute 
- * au total des impôts collectés par le plateau. Si le joueur ne dispose pas 
+ * Cette méthode réduit l'argent du joueur du montant des impôts et l'ajoute
+ * au total des impôts collectés par le plateau. Si le joueur ne dispose pas
  * de suffisamment d'argent, il doit vendre une propriété ou déclarer la faillite.
  *
  * @param montant Le montant des impôts à payer.
@@ -231,7 +237,7 @@ void Joueur::payer_impots(uint16_t montant, Plateau &plateau)
     {
         argent_total -= montant;
         plateau.ajouterImpots(montant);
-        cout << nom << "a payé " << montant << " mono d'impots." << endl;
+        cout << nom << " a payé " << montant << " mono d'impots." << endl;
     }
     else
     {
@@ -418,7 +424,7 @@ void Joueur::ajouterHotel(Propriete &propriete)
 /**
  * @brief Retourne le nombre de gares possédées par le joueur.
  *
- * Cette méthode parcourt toutes les propriétés du joueur et compte celles 
+ * Cette méthode parcourt toutes les propriétés du joueur et compte celles
  * dont le nom contient le mot "Gare", indiquant qu'il s'agit d'une gare.
  *
  * @return uint8_t Le nombre total de gares détenues par le joueur.
@@ -440,8 +446,8 @@ uint8_t Joueur::getNombreGares()
 /**
  * @brief Retourne le nombre de services publics possédés par le joueur.
  *
- * Cette méthode parcourt toutes les propriétés du joueur et compte celles 
- * dont le nom contient l'expression "Compagnie de distribution", 
+ * Cette méthode parcourt toutes les propriétés du joueur et compte celles
+ * dont le nom contient l'expression "Compagnie de distribution",
  * indiquant qu'il s'agit d'un service public.
  *
  * @return uint8_t Le nombre total de services publics détenus par le joueur.
@@ -491,7 +497,6 @@ void Joueur::afficherArgent() const
     std::cout << nom << " possède actuellement " << argent_total << " mono." << std::endl;
 }
 
-
 /**
  * @brief Donne au joueur une carte "Sortie de prison".
  *
@@ -500,7 +505,7 @@ void Joueur::afficherArgent() const
  */
 void Joueur::recevoir_carte_sortie_prison()
 {
-    carteChancePrison = true;  // Attribue la carte de sortie de prison au joueur
+    carteChancePrison = true; // Attribue la carte de sortie de prison au joueur
     cout << nom << " a reçu une carte 'Sortie de prison'. Elle peut être utilisée plus tard." << endl;
 }
 
