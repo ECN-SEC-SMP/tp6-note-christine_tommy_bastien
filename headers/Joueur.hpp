@@ -55,6 +55,12 @@ public:
     uint8_t getPosition();
 
     /**
+     * @brief Obtient le booléen de si le joueur est en prison ou pas.
+     * @return bool joueur en prison ou pas.
+     */
+    bool getPrison();
+
+    /**
      * @brief Lance les dés pour le joueur.
      * @param des Référence vers l'objet Des.
      * @return bool Retourne true si un double est obtenu, sinon false.
