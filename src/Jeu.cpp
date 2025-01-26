@@ -165,7 +165,7 @@ void Jeu::jouerPartie()
             bool tourTermine = false;
             while (!tourTermine)
             {
-                if (resPropriete != nullptr)
+                if (resPropriete != nullptr && !resDouble)
                 {
                     cout << "\nOptions disponibles :" << endl;
                     cout << "1. Acheter la propriété" << endl;
@@ -178,6 +178,33 @@ void Jeu::jouerPartie()
                     cout << "Votre choix : ";
                     cin >> choix;
                 }
+                else if (resPropriete != nullptr && resDouble)
+                {
+                    cout << "\nOptions disponibles :" << endl;
+                    cout << "1. Acheter la propriété" << endl;
+                    cout << "2. Afficher mes propriétés" << endl;
+                    cout << "3. Voir mon argent" << endl;
+                    cout << "4. Passer le tour" << endl;
+                    cout << "5. Quitter la partie" << endl;
+                    cout << "6. Relancer les dés" << endl;
+                    cout << endl;
+
+                    cout << "Votre choix : ";
+                    cin >> choix;
+                }
+                else if (resPropriete ==nullptr && !resDouble)
+                {
+                    cout << "\nOptions disponibles :" << endl;
+                    cout << "1. Afficher mes propriétés" << endl;
+                    cout << "2. Voir mon argent" << endl;
+                    cout << "3. Passer le tour" << endl;
+                    cout << "4. Quitter la partie" << endl;
+                    cout << endl;
+
+                    cout << "Votre choix : ";
+                    cin >> choix;
+                    choix += 1;
+                }
                 else
                 {
                     cout << "\nOptions disponibles :" << endl;
@@ -185,6 +212,7 @@ void Jeu::jouerPartie()
                     cout << "2. Voir mon argent" << endl;
                     cout << "3. Passer le tour" << endl;
                     cout << "4. Quitter la partie" << endl;
+                    cout << "5. Relancer les dés" <<endl;
                     cout << endl;
 
                     cout << "Votre choix : ";
@@ -212,6 +240,9 @@ void Jeu::jouerPartie()
                     cout << joueur.getNom() << " a décidé de quitter la partie." << endl;
                     partieEnCours = false;
                     tourTermine = true;
+                    break;
+                case 6 :
+                    jouerPartie();
                     break;
                 default:
                     cout << choix << endl;
