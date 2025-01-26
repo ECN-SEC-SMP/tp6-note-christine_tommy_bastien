@@ -1,0 +1,6 @@
+a faire : 
+
+
+-joueur en prison : faire un double pour sortir
+- erreur carte chance invalide
+

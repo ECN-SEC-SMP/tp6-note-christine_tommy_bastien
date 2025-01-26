@@ -1,0 +1,35 @@
+{
+    "version": "2.0.0",
+    "tasks": [
+        {
+            "label": "Compiler le programme",
+            "type": "shell",
+            "command": "g++",
+            "args": [
+                "-g",
+                "${workspaceFolder}/src/main.cpp",
+                "${workspaceFolder}/src/Carte.cpp",
+                "${workspaceFolder}/src/Case.cpp",
+                "${workspaceFolder}/src/Chance.cpp",
+                "${workspaceFolder}/src/Communaute.cpp",
+                "${workspaceFolder}/src/Des.cpp",
+                "${workspaceFolder}/src/Gare.cpp",
+                "${workspaceFolder}/src/Jeu.cpp",
+                "${workspaceFolder}/src/Joueur.cpp",
+                "${workspaceFolder}/src/Pion.cpp",
+                "${workspaceFolder}/src/Plateau.cpp",
+                "${workspaceFolder}/src/Propriete.cpp",
+                "${workspaceFolder}/src/ServicePublic.cpp",
+                "${workspaceFolder}/src/Terrain.cpp",
+                "-o",
+                "${workspaceFolder}/build/src/main"
+            ],
+            "group": {
+                "kind": "build",
+                "isDefault": true
+            },
+            "problemMatcher": ["$gcc"],
+            "detail": "Generated task by GitHub Copilot"
+        }
+    ]
+}
