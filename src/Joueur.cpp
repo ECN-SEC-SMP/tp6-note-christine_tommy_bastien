@@ -279,7 +279,6 @@ void Joueur::aller_prison()
     prison = true;
     pion.setPosition(10);
     cout << nom << " est envoyé en prison. CETTE RACAILLE" << endl;
-    utiliser_carte_sortie_prison;
 }
 
 /**
