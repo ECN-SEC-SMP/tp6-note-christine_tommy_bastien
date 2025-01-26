@@ -117,6 +117,15 @@ void Joueur::acheterPropriete(Joueur joueur, Propriete *propriete)
     }
 }
 
+
+/**
+ * @brief Vend une propriété possédée par le joueur.
+ *
+ * Cette fonction permet au joueur de vendre une propriété qu'il possède.
+ * Elle met à jour l'état de la propriété et le montant d'argent du joueur.
+ *
+ * @param propriete Pointeur vers la propriété à vendre.
+ */
 void Joueur::vendrePropriete(Propriete *)
 {
 }
@@ -203,6 +212,19 @@ void Joueur::payer_banque(uint16_t montant)
     }
 }
 
+/**
+ * @brief Permet au joueur de payer ses impôts au plateau.
+ *
+ * Cette méthode réduit l'argent du joueur du montant des impôts et l'ajoute 
+ * au total des impôts collectés par le plateau. Si le joueur ne dispose pas 
+ * de suffisamment d'argent, il doit vendre une propriété ou déclarer la faillite.
+ *
+ * @param montant Le montant des impôts à payer.
+ * @param plateau Référence à l'objet Plateau pour ajouter les impôts collectés.
+ *
+ * Si le joueur ne peut pas payer, il doit vendre des propriétés. S'il ne possède
+ * plus de propriétés, il est déclaré en faillite.
+ */
 void Joueur::payer_impots(uint16_t montant, Plateau &plateau)
 {
     if (argent_total > montant)
@@ -393,6 +415,14 @@ void Joueur::ajouterHotel(Propriete &propriete)
     }
 }
 
+/**
+ * @brief Retourne le nombre de gares possédées par le joueur.
+ *
+ * Cette méthode parcourt toutes les propriétés du joueur et compte celles 
+ * dont le nom contient le mot "Gare", indiquant qu'il s'agit d'une gare.
+ *
+ * @return uint8_t Le nombre total de gares détenues par le joueur.
+ */
 uint8_t Joueur::getNombreGares()
 {
     uint8_t compteur = 0;
@@ -407,6 +437,15 @@ uint8_t Joueur::getNombreGares()
     return compteur;
 }
 
+/**
+ * @brief Retourne le nombre de services publics possédés par le joueur.
+ *
+ * Cette méthode parcourt toutes les propriétés du joueur et compte celles 
+ * dont le nom contient l'expression "Compagnie de distribution", 
+ * indiquant qu'il s'agit d'un service public.
+ *
+ * @return uint8_t Le nombre total de services publics détenus par le joueur.
+ */
 uint8_t Joueur::getNombreServicesPublics()
 {
     uint8_t compteur = 0;
@@ -441,7 +480,55 @@ void Joueur::aller_a_une_case_absolue(uint8_t val_case)
     pion.setPosition(val_case);
 }
 
+/**
+ * @brief Affiche le montant d'argent actuellement possédé par le joueur.
+ *
+ * Cette méthode affiche le montant total d'argent que possède le joueur,
+ * en indiquant son nom et la somme disponible en "mono".
+ */
 void Joueur::afficherArgent() const
 {
     std::cout << nom << " possède actuellement " << argent_total << " mono." << std::endl;
+}
+
+
+/**
+ * @brief Donne au joueur une carte "Sortie de prison".
+ *
+ * Cette fonction met à jour l'état du joueur en lui attribuant une carte de sortie de prison,
+ * qu'il pourra utiliser pour éviter d'aller en prison ou pour en sortir gratuitement.
+ */
+void Joueur::recevoir_carte_sortie_prison()
+{
+    carteChancePrison = true;  // Attribue la carte de sortie de prison au joueur
+    cout << nom << " a reçu une carte 'Sortie de prison'. Elle peut être utilisée plus tard." << endl;
+}
+
+/**
+ * @brief Vérifie si le joueur possède une carte "Sortie de prison".
+ *
+ * @return true si le joueur possède la carte, sinon false.
+ */
+bool Joueur::possede_carte_sortie_prison() const
+{
+    return carteChancePrison;
+}
+
+/**
+ * @brief Utilise la carte "Sortie de prison" pour sortir de prison.
+ *
+ * Si le joueur possède la carte, elle est utilisée et l'état du joueur est mis à jour.
+ */
+void Joueur::utiliser_carte_sortie_prison()
+{
+    if (carteChancePrison)
+    {
+        carteChancePrison = false;
+        sortir_prison();
+        cout << nom << " a utilisé sa carte 'Sortie de prison' et est maintenant libre." << endl;
+    }
+    else
+    {
+        cout << nom << " n'a pas de carte 'Sortie de prison'." << endl;
+    }
 }

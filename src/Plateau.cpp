@@ -177,29 +177,7 @@ Propriete *Plateau::executerAction(uint8_t numCase, Joueur &joueur)
         return nullptr;
     }
 
-    // if (numCase < vecteur_plateau.size())
-    // {
-    //     auto &caseActuelle = vecteur_plateau[numCase];
-
-    //     if (auto chance = dynamic_cast<Chance *>(caseActuelle.get()))
-    //     {
-    //         cout << joueur.getNom() << " est sur une case Chance !" << endl;
-    //         chance->appliquerEffet(joueur);
-    //     }
-    //     else if (auto communaute = dynamic_cast<Communaute *>(caseActuelle.get()))
-    //     {
-    //         cout << joueur.getNom() << " est sur une case Caisse de Communauté !" << endl;
-    //         communaute->appliquerEffet(joueur);
-    //     }
-    //     else
-    //     {
-    //         cout << "Aucune action spéciale pour cette case." << endl;
-    //     }
-    // }
-    // else
-    // {
-    //     cout << "Position invalide." << endl;
-    // }
+   
 }
 
 /**
@@ -230,47 +208,3 @@ uint16_t Plateau::getImpots()
     return impots;
 }
 
-// void Plateau::afficherDetailsCase(uint8_t position) const
-// {
-//     if (position < vecteur_plateau.size())
-//     {
-//         cout << "Vous êtes sur la case : " << vecteur_plateau[position]->getNom() << endl;
-
-//         // Vérifie si la case est un Terrain
-//         if (auto terrain = dynamic_cast<Terrain*>(vecteur_plateau[position].get()))
-//         {
-//             cout << "Type : Terrain" << endl;
-//             cout << "Prix : " << terrain->getPrix() << " mono" << endl;
-//         }
-//         // Vérifie si la case est une Gare
-//         else if (auto gare = dynamic_cast<Gare*>(vecteur_plateau[position].get()))
-//         {
-//             cout << "Type : Gare" << endl;
-//             cout << "Prix : " << gare->getPrix() << " mono" << endl;
-//         }
-//         // Vérifie si la case est un Service Public
-//         else if (auto service = dynamic_cast<ServicePublic*>(vecteur_plateau[position].get()))
-//         {
-//             cout << "Type : Service Public" << endl;
-//             cout << "Prix : " << service->getPrix() << " mono" << endl;
-//         }
-//         // Vérifie si la case est une carte Chance
-//         else if (auto chance = dynamic_cast<Chance*>(vecteur_plateau[position].get()))
-//         {
-//             cout << "Type : Carte Chance" << endl;
-//         }
-//         // Vérifie si la case est une carte Communauté
-//         else if (auto commu = dynamic_cast<Communaute*>(vecteur_plateau[position].get()))
-//         {
-//             cout << "Type : Carte Caisse de Communauté" << endl;
-//         }
-//         else
-//         {
-//             cout << "Type : Case spéciale" << endl;
-//         }
-//     }
-//     else
-//     {
-//         cout << "Case invalide." << endl;
-//     }
-// }

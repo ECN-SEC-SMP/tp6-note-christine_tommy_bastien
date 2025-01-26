@@ -89,7 +89,7 @@ void Chance::appliquerEffet(Joueur &joueur)
         break;
     case 8:
         cout << joueur.getNom() << " a tiré une carte 'Libéré de prison'. Elle peut être conservée." << endl;
-        // joueur.recevoir_carte_sortie_prison();
+         joueur.recevoir_carte_sortie_prison();
         break;
     case 9:
         joueur.avancer(-3);

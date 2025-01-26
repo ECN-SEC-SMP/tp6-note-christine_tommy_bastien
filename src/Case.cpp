@@ -46,8 +46,16 @@ void Case::caseDepart(Joueur &joueur)
 
 void Case::casePrison(Joueur &joueur)
 {
-    joueur.aller_prison();
-    cout << joueur.getNom() << " va en taule" << endl;
+   if (joueur.possede_carte_sortie_prison())
+    {
+        cout << joueur.getNom() << " possède une carte 'Sortie de prison' et l'utilise pour éviter d'aller en prison." << endl;
+        joueur.utiliser_carte_sortie_prison();
+    }
+    else
+    {
+        joueur.aller_prison();
+        cout << joueur.getNom() << " est envoyé en prison. Il devra attendre ou payer une caution pour sortir." << endl;
+    }
 }
 
 /**

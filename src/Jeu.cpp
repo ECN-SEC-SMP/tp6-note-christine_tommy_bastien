@@ -129,6 +129,13 @@ vector<Joueur> Jeu::getVecteurJoueurs()
     return joueurs;
 }
 
+
+/**
+ * @brief Fonction principale qui gère le déroulement de la partie.
+ *
+ * Cette méthode permet de jouer à tour de rôle pour chaque joueur,
+ * en affichant les options disponibles après le lancement des dés.
+ */
 void Jeu::jouerPartie()
 {
     int choix = 0;
@@ -152,10 +159,11 @@ void Jeu::jouerPartie()
             {
                 cout << "Vous avez fait un double, vous pourrez rejouer à la fin de votre tour." << endl;
             }
+            //joueur.recevoir_carte_sortie_prison();
+           
+            des.getValue();  //  int valeurDes = 10;
 
-            int valeurDes = 7; // des.getValue();
-
-            joueur.avancer(valeurDes);
+            joueur.avancer( des.getValue());
             int position = joueur.getPosition();
             cout << joueur.getNom() << " est maintenant sur la case " << position << "." << endl;
 
