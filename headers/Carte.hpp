@@ -11,7 +11,7 @@ using namespace std;
 class Carte : public Case
 {
 protected:
-    uint8_t nbRandom;
+    uint8_t nbRandom = 0;
 
 public:
     Carte();

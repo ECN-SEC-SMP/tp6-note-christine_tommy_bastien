@@ -97,7 +97,6 @@ void Jeu::demarrerTour()
     demarrerTour();
 }
 
-
 /**
  * @brief Termine la partie de jeu.
  *
@@ -140,6 +139,8 @@ void Jeu::jouerPartie()
         for (Joueur &joueur : joueurs)
         {
             cout << "\nC'est au tour de " << joueur.getNom() << "." << endl;
+
+
             cout << "Appuyez sur Entrée pour lancer les dés..." << endl;
             cin.ignore(numeric_limits<streamsize>::max(), '\n');
             cin.get();
@@ -152,7 +153,7 @@ void Jeu::jouerPartie()
                 cout << "Vous avez fait un double, vous pourrez rejouer à la fin de votre tour." << endl;
             }
 
-            int valeurDes = des.getValue();
+            int valeurDes = 7; // des.getValue();
 
             joueur.avancer(valeurDes);
             int position = joueur.getPosition();
@@ -192,7 +193,7 @@ void Jeu::jouerPartie()
                     cout << "Votre choix : ";
                     cin >> choix;
                 }
-                else if (resPropriete ==nullptr && !resDouble)
+                else if (resPropriete == nullptr && !resDouble)
                 {
                     cout << "\nOptions disponibles :" << endl;
                     cout << "1. Afficher mes propriétés" << endl;
@@ -212,7 +213,7 @@ void Jeu::jouerPartie()
                     cout << "2. Voir mon argent" << endl;
                     cout << "3. Passer le tour" << endl;
                     cout << "4. Quitter la partie" << endl;
-                    cout << "5. Relancer les dés" <<endl;
+                    cout << "5. Relancer les dés" << endl;
                     cout << endl;
 
                     cout << "Votre choix : ";
@@ -241,7 +242,7 @@ void Jeu::jouerPartie()
                     partieEnCours = false;
                     tourTermine = true;
                     break;
-                case 6 :
+                case 6:
                     jouerPartie();
                     break;
                 default:

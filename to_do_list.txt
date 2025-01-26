@@ -1,11 +1,6 @@
 a faire : 
 
 
--afficher loyer des terrains : ok
-
 -joueur en prison : faire un double pour sortir
-- double fait : relancer les dés 
--caca est sur la case "gare Gare de Lyon
--pour les gares, le loyer ne s'affichent pas
 - erreur carte chance invalide
 

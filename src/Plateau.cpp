@@ -115,14 +115,16 @@ Propriete *Plateau::executerAction(uint8_t numCase, Joueur &joueur)
         {
             cout << joueur.getNom() << " est sur une case Chance !" << endl
                  << endl;
-            chance->appliquerEffet(joueur);
+            joueur.tirer_carte_chance();
+            // chance->appliquerEffet(joueur);
             return nullptr;
         }
         else if (auto communaute = dynamic_cast<Communaute *>(caseActuelle.get()))
         {
             cout << joueur.getNom() << " est sur une case Caisse de Communauté !" << endl
                  << endl;
-            communaute->appliquerEffet(joueur, nombreJoueurs, joueurs);
+            joueur.tirer_carte_communaute();
+            // communaute->appliquerEffet(joueur, nombreJoueurs, joueurs);
             return nullptr;
         }
         else if (auto _case = dynamic_cast<Case *>(caseActuelle.get()))
