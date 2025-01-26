@@ -158,7 +158,7 @@ void Communaute::appliquerEffet(Joueur &joueur, uint8_t nbJoueurs, vector<Joueur
             break;
 
         default:
-            cout << "Erreur: Carte chance invalide." << endl;
+            cout << "Erreur: Carte communauté invalide." << endl;
             break;
         }
     }
